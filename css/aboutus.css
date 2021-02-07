@@ -1,11 +1,42 @@
 .player-profile{
+    margin: 10px;
+}
+
+.player-picture{
     background-attachment: scroll;
-    background-image: url('../img/chiseledpolishedblackstone.png');
     background-position: center;
-    background-repeat: repeat;
-    border: 2px darkcyan solid;
-    border-radius: 1em;
-    color: aquamarine;
-    padding: 0px;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    height: 190px;
+    margin: 2%;
+    width: 20%;
+}
+
+#pictureplayerone{
+    background-image: url('../img/cokefish.png');
+}
+
+#pictureplayertwo{
+    background-image: url('../img/kayrat.png');
+}
+
+#pictureplayerthree{
+    background-image: url('../img/cokefish.png');
+}
+
+
+.player-content{
+    display: inline-block;
+    margin: 2%;
+    vertical-align: top;
+    width: 70%;
+}
+
+.player-content h4{
+    margin: 0px;
+}
+
+.player-content span{
+    margin: 0px;
 }

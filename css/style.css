@@ -21,6 +21,19 @@ a:link, a:visited{
     border: 2px darkcyan solid;
     border-radius: 1em;
     color: aquamarine;
+    padding: 0px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.popout-main{
+    background-attachment: scroll;
+    background-image: url('../img/ice-greencontrastdarker.png');
+    background-position: center;
+    background-repeat: repeat;
+    border: 2px darkcyan solid;
+    border-radius: 1em;
+    color: aquamarine;
+    padding: 0px;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
@@ -96,7 +109,7 @@ a:link, a:visited{
     width: 150px;
 }
 
-.main-container{
+.main-container-text{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
     left: 25%;
@@ -104,14 +117,14 @@ a:link, a:visited{
     right: 10%;
 }
 
-.main-container h3{
+.main-container-text h3{
     font-variant: small-caps;
     font-weight: bolder;
     text-align: center;
     text-decoration: underline;
 }
 
-.main-container h6{
+.main-container-text h4{
     font-variant: small-caps;
     font-weight: bolder;
     text-align: center;
@@ -124,8 +137,12 @@ a:link, a:visited{
     text-decoration: underline;
 } */
 
-.main-container p{
+.main-container-text p{
     text-align: left;
+}
+
+.main-container-box p{
+    disp
 }
 
 #main-footer{
@@ -152,7 +169,7 @@ a:link, a:visited{
     #navigation{
         display: none;
     }
-    .main-container{
+    .main-container-text{
         left: 15%;
         right: 15%;
     }
@@ -163,7 +180,7 @@ a:link, a:visited{
     #navigation{
         display: none;
     }
-    .main-container{
+    .main-container-text{
         left: 15%;
         right: 15%;
     }
@@ -174,20 +191,32 @@ a:link, a:visited{
 
 /*When increasing width of window*/
 @media(min-width:1100px){
-    .main-container{
+    .main-container-text{
         left: 21%;
         right: 15%;
     }
 }
 @media(min-width:1500px){
-    .main-container{
+    .main-container-text{
         left: 17%;
         right: 15%;
     }
 }
 @media(min-width:1700px){
-    .main-container{
+    .main-container-text{
         left: 15%;
+        right: 15%;
+    }
+}
+@media(min-width:2000px){
+    .main-container-text{
+        left: 16.5%;
+        right: 15%;
+    }
+}
+@media(min-width:2300px){
+    .main-container-text{
+        left: 18%;
         right: 15%;
     }
 }
