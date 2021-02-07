@@ -1,0 +1,11 @@
+.player-profile{
+    background-attachment: scroll;
+    background-image: url('../img/chiseledpolishedblackstone.png');
+    background-position: center;
+    background-repeat: repeat;
+    border: 2px darkcyan solid;
+    border-radius: 1em;
+    color: aquamarine;
+    padding: 0px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
