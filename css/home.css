@@ -1,4 +1,4 @@
-.player-picture{
+.news-picture{
     background-attachment: scroll;
     background-position: center;
     background-repeat: no-repeat;
@@ -9,29 +9,29 @@
     width: 20%;
 }
 
-#pictureplayerone{
-    background-image: url('../img/cokefish.png');
+#newspictureone{
+    background-image: url('../img/blueglazedterracotta.png');
 }
 
-#pictureplayertwo{
-    background-image: url('../img/kayrat.png');
+#newspicturetwo{
+    background-image: url('../img/cyanglazedterracotta.png');
 }
 
-#pictureplayerthree{
-    background-image: url('../img/lemonhades.png');
+#newspicturethree{
+    background-image: url('../img/ice.png');
 }
 
-.player-content{
+.news-content{
     display: inline-block;
     margin: 2%;
     vertical-align: top;
     width: 70%;
 }
 
-.player-content h4{
+.news-content h4{
     margin: 0px;
 }
 
-.player-content span{
+.news-content span{
     margin: 0px;
 }
