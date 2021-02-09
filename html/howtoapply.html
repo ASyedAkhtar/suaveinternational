@@ -40,15 +40,65 @@
         </div>
     </nav>
     <div class="foreground-background box popout">
-        <section id="news" class="main-container-text box">
+        <section id="application" class="main-container-text">
             <h3>The Premiere Non-Reset Minecraft Bedrock Community!</h3>
             <p>If you want to apply for Suave, please carefully fill out our application below.</p>
             <h4>Application</h4>
             <section class="popout-main box">
-                <form action="apply.js" method="POST">
-                    <label>Minecraft: Bedrock Edition Tag</label>
-                    <input type="text" name="minecraftName">
+                <form class="form" action="../js/apply.js" method="POST">
+                    <table>
+                        <thead></thead>
+                        <tbody>
+                            <tr>
+                                <td><label>Minecraft: Bedrock Edition Tag</label></td>
+                                <td><input type="text" id="minecraftName" name="minecraftName" placeholder="Minecraft: Bedrock Edition Tag" maxlength="32" required></td>
+                            </tr>
+                            <tr>
+                                <td><label>Discord Tag</label></td>
+                                <td><input type="text" id="discordName" name="discordName" placeholder="e.g. Cokefish#6054" maxlength="32"></td>
+                            </tr>
+                            <tr>
+                                <td spacing="adjoining-row"><label>Social Media Platform</label></td>
+                                <td spacing="adjoining-row">
+                                    <input type="radio" id="reddit" name="socialMediaPlatform" value="reddit" required>
+                                    <label for="reddit">Reddit</label>
+                                    <input type="radio" id="twitter" name="socialMediaPlatform" value="twitter">
+                                    <label for="twitter">Twitter</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><input type="text" id="socialName" name="socialName" placeholder="Social Media Tag" maxlength="32" required></td>
+                            </tr>
+                            <tr>
+                                <td><label>Approximate Age Group</label></td>
+                                <td>
+                                    <select id="ageGroup" name="agegroup">
+                                        <option value="adult">Adult</option>
+                                        <option value="teenager">Teenager</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Any Other Relevant Information</label>
+                                </td>
+                                <td><textarea id="information" name="information" maxlength="256"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input class="popout" type="submit" name="submit" value="Submit Application">
+                                    <!-- <button class="popout" click="apply">Submit Application</button> -->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </form>
+            </section>
+            <section>
+                <h4>Thank you for your interest in Suave!</h4>
             </section>
         </section>
     </div>
