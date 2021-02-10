@@ -4,7 +4,8 @@
   "description": "Suave Services",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index",
+    "dev": "nodemon index"
   },
   "repository": {
     "type": "git",
@@ -13,6 +14,7 @@
   "author": "Amer Akhtar",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
