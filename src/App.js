@@ -1,9 +1,11 @@
 import './App.css';
+import Persons from './components/Persons';
 
 function App() {
+  
   return (
     <div className="App">
-      <h1>Suave Test</h1>
+      <Persons />
     </div>
   );
 }

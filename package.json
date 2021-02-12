@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app",
-    "dev": "nodemon app",
+    "dev": "nodemon -r dotenv/config app",
     "startreact": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -18,20 +18,21 @@
   "author": "Amer Akhtar",
   "license": "ISC",
   "dependencies": {
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.7.0",
     "dayjs": "^1.10.4",
     "express": "^4.17.1",
     "mongodb": "^3.6.4",
     "mongoose": "^5.11.15",
-    "uuid": "^8.3.2",
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.7.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.2",
+    "uuid": "^8.3.2",
     "web-vitals": "^1.1.0"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "nodemon": "^2.0.7"
   },
   "eslintConfig": {
