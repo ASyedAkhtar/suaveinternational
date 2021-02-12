@@ -4,8 +4,7 @@
 const express = require('express');
 const path = require('path');
 const logger = require('./middleware/logger');
-// const operation = require('./models/operations')
-const person = require('./models/schemas/person');
+const person = require('./models/schemas/Person');
 
 const app = express();
 
@@ -16,11 +15,11 @@ app.get("/", (req, res) =>  {
 });
 
 app.get("/api/person", async (req, res) => { 
-  const aaa = await person.findAllPersons;
-  res.send(aaa);
+  const applicants = await person.findAllPersons;
+  res.send(applicants);
 });
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
-// app.use(express.static(path.join(root, 'html')));z
+// app.use(express.static(path.join(root, 'html')));
