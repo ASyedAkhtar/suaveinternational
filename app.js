@@ -19,7 +19,6 @@ app.get("/api/person", async (req, res) => {
   res.send(applicants);
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.listen(process.env.PORT, () => console.log(`Server started on port ${process.env.PORT}.`));
 
 // app.use(express.static(path.join(root, 'html')));
