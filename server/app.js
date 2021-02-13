@@ -1,6 +1,3 @@
-// import express, { static } from 'express';
-// import { resolve, join } from 'path';
-
 const express = require('express');
 const path = require('path');
 const logger = require('./middleware/logger');
@@ -10,9 +7,12 @@ const app = express();
 
 app.use(logger);
 
-app.get("/", (req, res) =>  {
-    res.sendFile(path.join(__dirname, 'public/home.html'));
-});
+// app.get("/", (req, res) =>  {
+//     res.sendFile(path.join(__dirname, 'public/home.html'));
+// });
+
+app.use(express.static(path.join(__dirname, '..', 'build')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.get("/api/person", async (req, res) => { 
   const applicants = await person.findAllPersons;
@@ -20,5 +20,3 @@ app.get("/api/person", async (req, res) => {
 });
 
 app.listen(process.env.PORT, () => console.log(`Server started on port ${process.env.PORT}.`));
-
-// app.use(express.static(path.join(root, 'html')));
