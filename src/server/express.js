@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, '../..', 'public')));
 // });
 
 app.get(process.env.REACT_APP_PERSONS_API, async (req, res) => { 
-  const persons = await person.findAllPersons.clone().catch(function(err){ console.log(err)});
+  const persons = await person.findAllPersons.clone().catch(function(err){ console.log(err) });
   res.send(persons);
 });
 
