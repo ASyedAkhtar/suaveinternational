@@ -5,12 +5,7 @@ const ObjectId = Schema.ObjectId;
 
 const operation = require('../operations');
 
-mongoose.connect(operation.uri, { 
-    useNewUrlParser: true, 
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true
-  });
+mongoose.connect(operation.uri, {});
 
 const Person = new Schema({
   _id: ObjectId,
@@ -29,7 +24,7 @@ const findAllPersons = leader.find({}, (err, docs) => {
   // docs.forEach(element => {
   //   console.log(`Element: ${element}`);
   // })
-}).exec();
+});
 
 // Person.methods.findByMinecraftName = (title, callback) => {
 //   return this.find({ minecraftName: minecraftName }, callback);
