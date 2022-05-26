@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import '../css/howtoapply.css';
+
 const HowToApply = () => {
 
   // States

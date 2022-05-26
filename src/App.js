@@ -3,8 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 
 import './css/style.css';
 import './css/home.css';
-import './css/howtoapply.css';
 
+import AboutUs from './components/AboutUs';
 import ApplicationStatus from './components/ApplicationStatus';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -26,6 +26,7 @@ function App()  {
               <Route path={process.env.REACT_APP_HOME_URL} element={<Home />} />
               <Route path={process.env.REACT_APP_APPLICATIONSTATUS_URL} element={<ApplicationStatus />} />
               <Route path={process.env.REACT_APP_HOWTOAPPLY_URL} element={<HowToApply />} />
+              <Route path={process.env.REACT_APP_ABOUTUS_URL} element={<AboutUs />} />
             </Routes>
           </section>
           <section>

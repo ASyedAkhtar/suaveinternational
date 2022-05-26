@@ -18,7 +18,7 @@ const Nav = () => {
             <li><Link to={process.env.REACT_APP_PERSONS_API}>Rules</Link></li>
             {/* <li><Link To={process.env.REACT_APP_APPLICATIONSTATUS_URL}>Application Status</Link></li>
             <li><Link To={process.env.REACT_APP_HOWTOAPPLY_URL}>How To Apply</Link></li>*/}
-            <li><Link to={process.env.REACT_APP_PERSONS_API}>About Us</Link></li>
+            <li><Link to={process.env.REACT_APP_ABOUTUS_URL}>About Us</Link></li>
           </ul>
         </div>
       </nav>
