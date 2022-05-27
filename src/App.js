@@ -1,16 +1,15 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import './css/style.css';
-import './css/home.css';
+import './components/css/style.css';
 
-import AboutUs from './components/AboutUs';
-import ApplicationStatus from './components/ApplicationStatus';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import Home from './components/Home';
-import HowToApply from './components/HowToApply';
-import Nav from './components/Nav';
+import AboutUs from './components/AboutUs.js';
+import ApplicationStatus from './components/ApplicationStatus.js';
+import Footer from './components/Footer.js';
+import Header from './components/Header.js';
+import Home from './components/Home.js';
+import HowToApply from './components/HowToApply.js';
+import Nav from './components/Nav.js';
 
 function App()  {
 
@@ -18,10 +17,10 @@ function App()  {
     <body>
       <Header />
       <Nav />
-      <div class="foreground-background box popout">
-        <section id="application" class="main-container-text">
+      <div class='foreground-background box popout'>
+        <section id='application' class='main-container-text'>
           <h3>The Premiere Non-Reset Minecraft Bedrock Community!</h3>
-          <section class="popout-main box">
+          <section class='popout-main box'>
             <Routes>
               <Route path={process.env.REACT_APP_HOME_URL} element={<Home />} />
               <Route path={process.env.REACT_APP_APPLICATIONSTATUS_URL} element={<ApplicationStatus />} />

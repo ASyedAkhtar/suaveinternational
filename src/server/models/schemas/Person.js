@@ -1,9 +1,13 @@
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
+
+// const operation = require('../operations.js');
+
+import mongoose from 'mongoose';
+
+import operation from '..operations.js';
 
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
-
-const operation = require('../operations');
 
 mongoose.connect(operation.uri, {});
 
@@ -45,4 +49,6 @@ const findAllPersons = leader.find({}, (err, docs) => {
 //   });
 // });
 
-module.exports = {  findAllPersons };
+// module.exports = {  findAllPersons };
+
+export default findAllPersons;

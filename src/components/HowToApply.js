@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import '../css/howtoapply.css';
+import './css/howtoapply.css';
 
 const HowToApply = () => {
 
@@ -138,5 +138,5 @@ const HowToApply = () => {
   )
 }
   
-  export default HowToApply;
+export default HowToApply;
   

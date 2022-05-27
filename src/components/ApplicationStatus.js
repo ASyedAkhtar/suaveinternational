@@ -1,4 +1,4 @@
-import persons from '../api/persons'
+import persons from '../api/persons.js'
 
 const ApplicationStatus = () => {
 

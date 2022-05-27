@@ -1,11 +1,14 @@
 import { Path } from 'react-router-dom';
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { Home } from './Home';
-import { ApplicationStatus } from './ApplicationStatus';
-import { HowToApply } from './HowToApply';
+import AboutUs from './AboutUs.js';
+import ApplicationStatus from './ApplicationStatus.js';
+import Footer from './Footer.js';
+import Header from './Header.js';
+import Home from './Home.js';
+import HowToApply from './HowToApply.js';
 
 const Nav = () => {
   return (

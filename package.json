@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Suave Services",
   "main": "App.js",
+  "type": "module",
   "scripts": {
-    "start": "npm run build && (node -r dotenv/config src/server/express.js dotenv_config_path=.env)",
+    "start": "npm run build && (node -r dotenv/config src/server/index.js dotenv_config_path=.env)",
     "start-client": "react-scripts start",
     "dev": "react-scripts start & (nodemon -r dotenv/config app)",
     "startreact": "react-scripts start",
@@ -19,14 +20,19 @@
   "author": "Amer Akhtar",
   "license": "ISC",
   "dependencies": {
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "^7.17.12",
+    "@babel/register": "^7.17.7",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.7.0",
     "axios": "^0.21.1",
     "dayjs": "^1.11.2",
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "mongodb": "^4.6.0",
     "mongoose": "^6.3.4",
+    "path": "^0.12.7",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
@@ -35,7 +41,6 @@
     "web-vitals": "^1.1.0"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0",
     "nodemon": "^2.0.7"
   },
   "eslintConfig": {
@@ -54,6 +59,16 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "babel": {
+    "ignore": [
+      "/(node_modules)/",
+      "src/components/css"
+    ],
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
     ]
   }
 }
