@@ -24,13 +24,13 @@ const ApplicationStatus = () => {
       <ul>
         {person.map((person) => {
           return(
-            <div>
-              <li key={person._id}><strong>Minecraft Name: </strong>{person.minecraftName}</li>
-              <li key={person._id}><strong>Discord Tag: </strong>{person.discordName}</li>
-              <li key={person._id}><strong>Social Media Platform: </strong>{person.socialType}</li>
-              <li key={person._id}><strong>Social Name: </strong>{person.socialName}</li>
-              <li key={person._id}><strong>Approximate Age Group: </strong>{person.ageGroup}</li>
-              <li key={person._id}><strong>Any Other Relevant Information: </strong>{person.info}</li>
+            <div key={person._id}>
+              <li><strong>Minecraft Name: </strong>{person.minecraftName}</li>
+              <li><strong>Discord Tag: </strong>{person.discordName}</li>
+              <li><strong>Social Media Platform: </strong>{person.socialType}</li>
+              <li><strong>Social Name: </strong>{person.socialName}</li>
+              <li><strong>Approximate Age Group: </strong>{person.ageGroup}</li>
+              <li><strong>Any Other Relevant Information: </strong>{person.info}</li>
             </div>
           );
         })}
