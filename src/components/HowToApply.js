@@ -1,4 +1,7 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+
+import person from '../api/postPerson.js';
 
 import './css/howtoapply.css';
 
@@ -50,8 +53,20 @@ const HowToApply = () => {
       && values.socialName
       && values.ageGroup) {
         setValid(true);
-      }
+        setPerson();
+    }
     setSubmitted(true);
+  }
+
+  const setPerson = async () => {
+    const request = await person.post('', {
+      minecraftName: values.minecraftName,
+      discordName: values.discordName,
+      socialType: values.socialType,
+      socialName: values.socialName,
+      ageGroup: values.ageGroup,
+      info: values.info
+    });
   }
 
   return (
@@ -129,7 +144,7 @@ const HowToApply = () => {
           <tr>
             <td></td>
             <td>
-              <input onClick={handleSubmit} className='popout' type='submit' name='submit' value='Submit Application'/>
+              <input className='popout' type='submit' name='submit' value='Submit Application'/>
             </td>
           </tr>
         </tbody>
