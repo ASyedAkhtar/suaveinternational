@@ -1,4 +1,4 @@
-import react, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import data from '../api/data.json';
 import persons from '../api/getAllPersons.js';
@@ -9,14 +9,14 @@ const ApplicationStatus = () => {
 
   const [person, setPerson] = useState([]);
 
-  const getPerson = async () => {
+  const getPersons = async () => {
     const response = await persons.get('');
     const data = await response.data;
     setPerson(data);
   }
 
   useEffect(() => {
-    getPerson();
+    getPersons();
   }, []);
 
   return (
