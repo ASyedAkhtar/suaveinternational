@@ -1,7 +1,7 @@
 import react, { useEffect, useState } from 'react';
 
 import data from '../api/data.json';
-import persons from '../api/persons.js';
+import persons from '../api/getAllPersons.js';
 
 import './css/applicationstatus.css';
 
@@ -23,14 +23,27 @@ const ApplicationStatus = () => {
     <div>
       <ul>
         {person.map((person) => {
-          return(
+          return (
             <div key={person._id}>
+              <br />
               <li><strong>Minecraft Name: </strong>{person.minecraftName}</li>
               <li><strong>Discord Tag: </strong>{person.discordName}</li>
               <li><strong>Social Media Platform: </strong>{person.socialType}</li>
               <li><strong>Social Name: </strong>{person.socialName}</li>
               <li><strong>Approximate Age Group: </strong>{person.ageGroup}</li>
               <li><strong>Any Other Relevant Information: </strong>{person.info}</li>
+              <br />
+              <ul>
+                {person.achievements.map((personAchievements, i) => {
+                  return (
+                    <div>
+                      <li><strong>Achievement {i}: </strong>{personAchievements.status}</li>
+                      <li><strong>Date {i}: </strong>{personAchievements.date}</li>
+                    </div>
+                  );
+                })}
+              </ul>
+              <br />
             </div>
           );
         })}
