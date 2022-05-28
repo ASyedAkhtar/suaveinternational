@@ -44,8 +44,8 @@ app.get(process.env.REACT_APP_ABOUTUS_URL, async (req, res, next) => {
   res.sendFile(path.join(buildPath, 'aboutus.html'));
 });
 
-app.get(process.env.REACT_APP_PERSONS_API, async (req, res) => { 
-  const persons = await person.findAllPersons.clone().catch(function(err){ console.log(err)});
+app.get(process.env.REACT_APP_GETALLPERSONS_API, async (req, res) => { 
+  const persons = await person.findAllPersons.clone().catch(function(err) { console.log(err) });
   res.send(persons);
 });
 
