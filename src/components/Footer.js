@@ -4,7 +4,7 @@ const Footer = () => {
     <footer id='main-footer' className='popout'>
         <p>Suave International. Copyright &copy; {date.getFullYear()}. All Rights Reserved.</p>
     </footer>
-  )
+  );
 }
 
 export default Footer;

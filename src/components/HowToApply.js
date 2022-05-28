@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-import '../css/howtoapply.css';
+import './css/howtoapply.css';
 
 const HowToApply = () => {
 
   // States
-  const[values, setValues] = useState({
+  const [values, setValues] = useState({
     minecraftName: "",
     discordName: "",
     socialType: null,
@@ -14,8 +14,8 @@ const HowToApply = () => {
     info: ""
   });
 
-  const[submitted, setSubmitted] = useState(false);
-  const[valid, setValid] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [valid, setValid] = useState(false);
 
   // Handlers
   const handleMinecraftNameInputChange = (event) =>  {
@@ -135,8 +135,8 @@ const HowToApply = () => {
         </tbody>
       </table>
     </form>
-  )
+  );
 }
   
-  export default HowToApply;
+export default HowToApply;
   

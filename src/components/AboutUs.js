@@ -1,4 +1,4 @@
-import '../css/aboutus.css';
+import './css/aboutus.css';
 
 const AboutUs = () => {
   return (
@@ -36,7 +36,7 @@ const AboutUs = () => {
         </span>
       </div>
     </div>
-  )
+  );
 }
   
 export default AboutUs;

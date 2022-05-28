@@ -5,7 +5,7 @@ const Header = () => {
         <div id='full-logo'></div>
       </div>
   </header>
-  )
+  );
 }
 
 export default Header;

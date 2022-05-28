@@ -1,16 +1,16 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import './css/style.css';
-import './css/home.css';
+import './components/css/style.css';
+import './components/css/home.css';
 
-import AboutUs from './components/AboutUs';
-import ApplicationStatus from './components/ApplicationStatus';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import Home from './components/Home';
-import HowToApply from './components/HowToApply';
-import Nav from './components/Nav';
+import AboutUs from './components/AboutUs.js';
+import ApplicationStatus from './components/ApplicationStatus.js';
+import Footer from './components/Footer.js';
+import Header from './components/Header.js';
+import Home from './components/Home.js';
+import HowToApply from './components/HowToApply.js';
+import Nav from './components/Nav.js';
 
 function App()  {
 
@@ -36,7 +36,7 @@ function App()  {
       </div>
       <Footer />
     </body>
-  )
+  );
 }
 
 export default App;

@@ -1,4 +1,5 @@
-const MongoClient = require('mongodb').MongoClient;
+import mongodb from 'mongodb';
+// const MongoClient = require('mongodb').MongoClient;
 // const mongoose = require('mongoose');
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@suavedb.m3wta.mongodb.net/SuaveDB?retryWrites=true&w=majority`;
@@ -29,4 +30,4 @@ const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@suavedb
 //     });
 //   });
 
-module.exports = {  uri  };
+export default { uri };

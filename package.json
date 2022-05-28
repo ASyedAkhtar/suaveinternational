@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Suave Services",
   "main": "App.js",
+  "type": "module",
   "scripts": {
-    "start": "npm run build && (node -r dotenv/config src/server/express.js dotenv_config_path=.env)",
+    "start": "npm run build && (node -r dotenv/config src/server/server.js dotenv_config_path=.env)",
     "start-client": "react-scripts start",
     "dev": "react-scripts start & (nodemon -r dotenv/config app)",
     "startreact": "react-scripts start",
@@ -19,24 +20,23 @@
   "author": "Amer Akhtar",
   "license": "ISC",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.7.0",
-    "axios": "^0.21.1",
+    "axios": "^0.27.2",
     "dayjs": "^1.11.2",
     "express": "^4.18.1",
     "mongodb": "^4.6.0",
     "mongoose": "^6.3.4",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
+    "url": "^0.11.0",
     "uuid": "^8.3.2",
-    "web-vitals": "^1.1.0"
+    "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0",
-    "nodemon": "^2.0.7"
+    "dotenv": "^16.0.1",
+    "nodemon": "^2.0.16"
   },
   "eslintConfig": {
     "extends": [

@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+
+import operation from '../operation.js';
 
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
-
-const operation = require('../operations');
 
 mongoose.connect(operation.uri, {});
 
@@ -45,4 +45,4 @@ const findAllPersons = leader.find({}, (err, docs) => {
 //   });
 // });
 
-module.exports = {  findAllPersons };
+export default { findAllPersons };
