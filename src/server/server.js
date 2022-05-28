@@ -3,12 +3,13 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 import express from 'express';
-import react from 'react';
+import React from 'react';
 import reactDomServer from 'react-dom/server';
 
 // import App from '../App.js';
 import logger from './middleware/logger.js';
-import person from './models/schemas/Person.js';
+
+import personRoute from './routes/persons.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const buildPath = path.join(__dirname, '../..', 'build');
@@ -40,18 +41,14 @@ const app = express();
 //   });
 // });
 
-app.get(process.env.REACT_APP_ABOUTUS_URL, async (req, res, next) => {
-  res.sendFile(path.join(buildPath, 'aboutus.html'));
-});
-
-app.get(process.env.REACT_APP_GETALLPERSONS_API, async (req, res) => { 
-  const persons = await person.findAllPersons.clone().catch(function(err) { console.log(err) });
-  res.send(persons);
-});
+// app.get(process.env.REACT_APP_ABOUTUS_URL, async (req, res, next) => {
+//   res.sendFile(path.join(buildPath, 'aboutus.html'));
+// });
 
 app.use(logger);
 // app.use(router);
 app.use(express.static(buildPath));
+app.use(process.env.REACT_APP_HOME_URL, personRoute);
 // app.use(
 //   express.static(path.resolve(__dirname, '.', 'dist'), { maxAge: '30d' })
 // );
