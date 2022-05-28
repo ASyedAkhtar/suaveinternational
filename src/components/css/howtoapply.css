@@ -1,4 +1,4 @@
-::placeholder{
+input::placeholder{
     color: aquamarine;
     opacity: 0.25;
 }
