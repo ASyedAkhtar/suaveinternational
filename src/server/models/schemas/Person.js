@@ -8,13 +8,17 @@ const ObjectId = Schema.ObjectId;
 mongoose.connect(operation.uri, {});
 
 const Person = new Schema({
-  _id: ObjectId,
-  minecraftName: String,
-  discordName: String,
-  socialType: String,
-  socialName: String,
-  ageGroup: String,
-  info: String
+  _id: { type: ObjectId, required: true },
+  minecraftName: { type: String, required: true, max: 64 },
+  discordName: { type: String, required: true, max: 64 },
+  socialType: { type: String, required: true, max: 64 },
+  socialName: { type: String, required: true, max: 64 },
+  ageGroup: { type: String, required: true, max: 64 },
+  info: { type: String, max: 256 },
+  achievements: [{
+    status: { type: String },
+    date: { type: Date }
+  }]
 });
 
 const leader = mongoose.model('Person', Person, 'persons');
