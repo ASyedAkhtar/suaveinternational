@@ -17,6 +17,10 @@
     background-image: url('../img/cyanglazedterracotta.png');
 }
 
+#newspicturethree{
+    background-image: url('../img/ice.png');
+}
+
 .news-content{
     display: inline-block;
     margin: 2%;
