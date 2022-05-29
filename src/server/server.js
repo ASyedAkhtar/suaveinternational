@@ -46,6 +46,7 @@ const app = express();
 // });
 
 app.use(logger);
+app.use(express.json());
 // app.use(router);
 app.use(express.static(buildPath));
 app.use(process.env.REACT_APP_HOME_URL, personRoute);
