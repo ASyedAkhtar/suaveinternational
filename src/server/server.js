@@ -9,6 +9,7 @@ import dayjs from 'dayjs';
 
 import logger from './middleware/logger.js';
 import person from './routes/person.js';
+import base from './routes/base.js';
 import operation from './models/operation.js';
 
 // import App from '../App.js';
@@ -21,14 +22,15 @@ const app = express();
 // Initialize middleware.
 app.use(logger);
 app.use(express.json());
+app.use(express.static(buildPath));
 
 // Initialize routes.
 app.use(process.env.REACT_APP_PERSON_ROUTE, person);
+app.use(process.env.REACT_APP_BASE_ROUTE, base);
 
 // Initialize models.
 operation.connect();
 
-app.use(express.static(buildPath));
 app.listen(process.env.PORT, () => console.log(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] Server started on port ${process.env.PORT}.`));
 
 // router.get('/', async (req, res, next) => {
