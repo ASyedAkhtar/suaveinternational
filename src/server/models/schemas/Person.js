@@ -2,10 +2,6 @@ import dayjs from 'dayjs';
 import { ObjectId } from 'mongodb';
 import mongoose from 'mongoose';
 
-import operation from '../operation.js';
-
-mongoose.connect(operation.uri, {});
-
 const Person = new mongoose.Schema({
   _id: { type: mongoose.ObjectId, required: true },
   minecraftName: { type: String, required: true, max: 64 },
@@ -24,8 +20,8 @@ const Person = new mongoose.Schema({
 // The model 'Person' is for the 'persons' collection in the database.
 const person = mongoose.model('Person', Person, 'persons');
 
-const list = person.find({}, (err, docs) => {
-  if(err) throw err;
+const list = person.find({}, (err, res) => {
+    if(err) throw err;
 });
 
 const create = (data) => {
