@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 
-import person from '../api/postPerson.js';
+import postPersonAPI from '../api/postPerson.js';
 
 import './css/howtoapply.css';
 
@@ -59,7 +59,7 @@ const HowToApply = () => {
   }
 
   const setPerson = async () => {
-    const request = await person.post('', {
+    const request = await postPersonAPI.post('', {
       minecraftName: values.minecraftName,
       discordName: values.discordName,
       socialType: values.socialType,
