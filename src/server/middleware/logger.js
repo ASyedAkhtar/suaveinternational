@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 
 const logger = (req, res, next) =>  {
-    console.log(`${req.protocol}://${req.get('host')}${req.originalUrl}: ${dayjs().format()}`);
+    console.log(`Request made to ${req.protocol}://${req.get('host')}${req.originalUrl} at ${dayjs().format()}.`);
     next();
 }
 
