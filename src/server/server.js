@@ -1,26 +1,33 @@
-import fs from 'fs';
+// import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
 import express from 'express';
-import React from 'react';
-import reactDomServer from 'react-dom/server';
+// import React from 'react';
+// import reactDomServer from 'react-dom/server';
+
+import logger from './middleware/logger.js';
+import person from './routes/person.js';
+import operation from './models/operation.js';
 
 // import App from '../App.js';
-import logger from './middleware/logger.js';
-
-import person from './routes/person.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const buildPath = path.join(__dirname, '../..', 'build');
 
 const app = express();
 
+// Initialize middleware.
 app.use(logger);
 app.use(express.json());
-app.use(express.static(buildPath));
+
+// Initialize routes.
 app.use(process.env.REACT_APP_PERSON_ROUTE, person);
 
+// Initialize models.
+operation.connect();
+
+app.use(express.static(buildPath));
 app.listen(process.env.PORT, () => console.log(`Server started on port ${process.env.PORT}.`));
 
 // router.get('/', async (req, res, next) => {
