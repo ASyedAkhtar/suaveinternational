@@ -11,6 +11,7 @@ router.get(process.env.REACT_APP_GETALLPERSONS_API, async (req, res, next) => {
 
 router.post(process.env.REACT_APP_POSTPERSON_API, async (req, res, next) => {
   res.send(process.env.RESPONSE_OK);
+  console.log(`Request payload: ${JSON.stringify(req.body)}`);
 });
 
 export default router;
