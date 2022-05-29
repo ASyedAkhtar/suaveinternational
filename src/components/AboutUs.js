@@ -1,7 +1,7 @@
 import './css/aboutus.css';
 
 const AboutUs = () => {
-  return (
+  return(
     <div>
       <div id="pictureplayerone" class="player-picture popout box"></div>
       <div class="player-content box">
@@ -38,6 +38,6 @@ const AboutUs = () => {
     </div>
   );
 }
-  
+
 export default AboutUs;
   

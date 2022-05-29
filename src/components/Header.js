@@ -1,5 +1,5 @@
 const Header = () => {
-  return (
+  return(
     <header>
       <div id='main-title-background' className='popout'>
         <div id='full-logo'></div>

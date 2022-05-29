@@ -1,5 +1,5 @@
 const Home = () => {
-  return (
+  return(
     <div>
       <div id='newspictureone' class='news-picture popout box'></div>
       <div className='news-content box'>
