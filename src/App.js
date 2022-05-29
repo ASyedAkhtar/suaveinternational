@@ -4,13 +4,15 @@ import { Routes, Route } from 'react-router-dom';
 import './components/css/style.css';
 import './components/css/home.css';
 
-import AboutUs from './components/AboutUs.js';
-import ApplicationStatus from './components/ApplicationStatus.js';
-import Footer from './components/Footer.js';
 import Header from './components/Header.js';
-import Home from './components/Home.js';
-import HowToApply from './components/HowToApply.js';
 import Nav from './components/Nav.js';
+import Home from './components/Home.js';
+import Gallery from './components/Gallery.js';
+import Rules from './components/Rules.js';
+import ApplicationStatus from './components/ApplicationStatus.js';
+import HowToApply from './components/HowToApply.js';
+import AboutUs from './components/AboutUs.js';
+import Footer from './components/Footer.js';
 
 const App = () => {
   return(
@@ -22,14 +24,12 @@ const App = () => {
           <h3>The Premiere Non-Reset Minecraft Community!</h3>
           <section class="popout-main box">
             <Routes>
-              {/* <Route path={`https://www.youtube.com/channel${process.env.REACT_APP_YOUTUBE_URL}`} component={() => {
-                window.location.href = 'https://www.youtube.com/channel';
-                return null;
-              }} /> */}
               <Route path={process.env.REACT_APP_ABOUTUS_URL} element={<AboutUs />} />
               <Route path={process.env.REACT_APP_HOWTOAPPLY_URL} element={<HowToApply />} />
               <Route path={process.env.REACT_APP_APPLICATIONSTATUS_URL} element={<ApplicationStatus />} />
-              <Route path={process.env.REACT_APP_HOME_URL} element={<Home />} />
+              <Route path={process.env.REACT_APP_RULES_URL} element={<Rules />} />
+              <Route path={process.env.REACT_APP_GALLERY_URL} element={<Gallery />} />
+              <Route path={process.env.REACT_APP_BASE_URL} element={<Home />} />
             </Routes>
           </section>
           <section>
