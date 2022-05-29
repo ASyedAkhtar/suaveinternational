@@ -36,8 +36,8 @@ const ApplicationStatus = () => {
                 {person.achievements.map((personAchievements, i) => {
                   return(
                     <div>
-                      <li><strong>Achievement {i}: </strong>{personAchievements.status}</li>
-                      <li><strong>Date {i}: </strong>{personAchievements.date}</li>
+                      <li><strong>Achievement {i+1}: </strong>{personAchievements.status}</li>
+                      <li><strong>Date {i+1}: </strong>{personAchievements.date}</li>
                     </div>
                   );
                 })}
