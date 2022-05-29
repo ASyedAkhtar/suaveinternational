@@ -20,12 +20,12 @@ const Nav = () => {
         <div>
           <ul>
             {/* <li><a href={{pathname: `https://www.youtube.com/channel${process.env.REACT_APP_YOUTUBE_URL}`}} target='_blank'>YouTube</a></li> */}
-            <li><a href={`https://www.youtube.com/channel${process.env.REACT_APP_YOUTUBE_URL}`} target='_blank'>YouTube</a></li>
-            <li><a href={`https://www.instagram.com${process.env.REACT_APP_INSTAGRAM_URL}`} target='_blank'>Instagram</a></li>
-            <li><a href={`https://www.twitter.com${process.env.REACT_APP_TWITTER_URL}`} target='_blank'>Twitter</a></li>
-            <li><a href={`https://www.tiktok.com${process.env.REACT_APP_TIKTOK_URL}`} target='_blank'>TikTok</a></li>
-            <li><a href={`https://www.facebook.com${process.env.REACT_APP_FACEBOOK_URL}`} target='_blank'>Facebook</a></li>
-            <li><a href={`https://www.snapchat.com/add${process.env.REACT_APP_SNAPCHAT_URL}`} target='_blank'>Snapchat</a></li>
+            <li><a href={`https://www.youtube.com/channel${process.env.REACT_APP_YOUTUBE_URL}`} target='_blank' rel='noreferrer'>YouTube</a></li>
+            <li><a href={`https://www.instagram.com${process.env.REACT_APP_INSTAGRAM_URL}`} target='_blank' rel='noreferrer'>Instagram</a></li>
+            <li><a href={`https://www.twitter.com${process.env.REACT_APP_TWITTER_URL}`} target='_blank' rel='noreferrer'>Twitter</a></li>
+            <li><a href={`https://www.tiktok.com${process.env.REACT_APP_TIKTOK_URL}`} target='_blank' rel='noreferrer'>TikTok</a></li>
+            <li><a href={`https://www.facebook.com${process.env.REACT_APP_FACEBOOK_URL}`} target='_blank' rel='noreferrer'>Facebook</a></li>
+            <li><a href={`https://www.snapchat.com/add${process.env.REACT_APP_SNAPCHAT_URL}`} target='_blank' rel='noreferrer'>Snapchat</a></li>
           </ul>
         </div>
       </nav>
