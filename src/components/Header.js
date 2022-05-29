@@ -4,7 +4,7 @@ const Header = () => {
       <div id='main-title-background' className='popout'>
         <div id='full-logo'></div>
       </div>
-  </header>
+    </header>
   );
 }
 
