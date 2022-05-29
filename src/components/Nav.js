@@ -1,14 +1,8 @@
-import { Path } from 'react-router-dom';
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// import { Home } from './Home.js';
-// import { ApplicationStatus } from './ApplicationStatus.js';
-// import { HowToApply } from './HowToApply.js';
-
 const Nav = () => {
-  return (
+  return(
     <div>
       <nav id='navigation' className='floatbar box popout'>
         <div>
@@ -25,12 +19,13 @@ const Nav = () => {
       <nav id='social' className='floatbar box popout'>
         <div>
           <ul>
-            <li><Link to={process.env.REACT_APP_HOME_URL}>YouTube</Link></li>
-            <li><Link to={process.env.REACT_APP_HOME_URL}>Instagram</Link></li>
-            <li><Link to={process.env.REACT_APP_HOME_URL}>Twitter</Link></li>
-            <li><Link to={process.env.REACT_APP_ABOUTUS_URL}>TikTok</Link></li>
-            <li><Link to={process.env.REACT_APP_ABOUTUS_URL}>Facebook</Link></li>
-            <li><Link to={process.env.REACT_APP_ABOUTUS_URL}>Snapchat</Link></li>
+            {/* <li><a href={{pathname: `https://www.youtube.com/channel${process.env.REACT_APP_YOUTUBE_URL}`}} target='_blank'>YouTube</a></li> */}
+            <li><a href={`https://www.youtube.com/channel${process.env.REACT_APP_YOUTUBE_URL}`} target='_blank'>YouTube</a></li>
+            <li><a href={`https://www.instagram.com${process.env.REACT_APP_INSTAGRAM_URL}`} target='_blank'>Instagram</a></li>
+            <li><a href={`https://www.twitter.com${process.env.REACT_APP_TWITTER_URL}`} target='_blank'>Twitter</a></li>
+            <li><a href={`https://www.tiktok.com${process.env.REACT_APP_TIKTOK_URL}`} target='_blank'>TikTok</a></li>
+            <li><a href={`https://www.facebook.com${process.env.REACT_APP_FACEBOOK_URL}`} target='_blank'>Facebook</a></li>
+            <li><a href={`https://www.snapchat.com/add${process.env.REACT_APP_SNAPCHAT_URL}`} target='_blank'>Snapchat</a></li>
           </ul>
         </div>
       </nav>
