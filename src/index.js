@@ -1,7 +1,7 @@
 import React from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import { StaticRouter } from 'react-router-dom/server.mjs';
+// import { StaticRouter } from 'react-router-dom/server.mjs';
 
 import App from './App.js';
 import reportWebVitals from './reportWebVitals.js';
