@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import data from '../api/data.json';
 import personList from '../api/person/list.js';
 
 import './css/applicationstatus.css';
@@ -19,11 +18,11 @@ const ApplicationStatus = () => {
     getPersons();
   }, []);
 
-  return (
+  return(
     <div>
       <ul>
         {person.map((person) => {
-          return (
+          return(
             <div key={person._id}>
               <br />
               <li><strong>Minecraft Name: </strong>{person.minecraftName}</li>
@@ -35,7 +34,7 @@ const ApplicationStatus = () => {
               <br />
               <ul>
                 {person.achievements.map((personAchievements, i) => {
-                  return (
+                  return(
                     <div>
                       <li><strong>Achievement {i}: </strong>{personAchievements.status}</li>
                       <li><strong>Date {i}: </strong>{personAchievements.date}</li>

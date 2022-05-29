@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useState } from 'react';
 
 import personCreate from '../api/person/create.js';
@@ -69,7 +68,7 @@ const HowToApply = () => {
     });
   }
 
-  return (
+  return(
     <form className='form' onSubmit={handleSubmit}>
       <br />
       {submitted && valid ? <div className='error'>Your application has been submitted! Thanks!</div> :
