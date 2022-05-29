@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import data from '../api/data.json';
-import getAllPersonsAPI from '../api/getAllPersons.js';
+import personList from '../api/person/list.js';
 
 import './css/applicationstatus.css';
 
@@ -10,7 +10,7 @@ const ApplicationStatus = () => {
   const [person, setPerson] = useState([]);
 
   const getPersons = async () => {
-    const response = await getAllPersonsAPI.get('');
+    const response = await personList.get('');
     const data = await response.data;
     setPerson(data);
   }
