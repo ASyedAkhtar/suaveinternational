@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 import express from 'express';
+import dayjs from 'dayjs';
 // import React from 'react';
 // import reactDomServer from 'react-dom/server';
 
@@ -28,7 +29,7 @@ app.use(process.env.REACT_APP_PERSON_ROUTE, person);
 operation.connect();
 
 app.use(express.static(buildPath));
-app.listen(process.env.PORT, () => console.log(`Server started on port ${process.env.PORT}.`));
+app.listen(process.env.PORT, () => console.log(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] Server started on port ${process.env.PORT}.`));
 
 // router.get('/', async (req, res, next) => {
 //   res.sendFile(path.join(buildPath, 'index.html'));
