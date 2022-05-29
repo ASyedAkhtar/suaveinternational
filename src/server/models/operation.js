@@ -2,14 +2,18 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 import mongoose from 'mongoose';
+import dayjs from 'dayjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+const baseURI = 'mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@suavedb.m3wta.mongodb.net/SuaveDB?retryWrites=true&w=majority';
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@suavedb.m3wta.mongodb.net/SuaveDB?retryWrites=true&w=majority`;
 
 const connect = () => {
-  mongoose.connect(uri, {});
-  console.log(`${__dirname}: Connected to database at ${uri}`);
+  mongoose.connect(uri, {}, (err) => {
+    if(err) throw err;
+  });
+  console.log(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] Connected to database at ${baseURI}.`);
 }
 
 export default { connect };
