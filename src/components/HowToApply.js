@@ -78,12 +78,12 @@ const HowToApply = () => {
           <tbody>
             <tr>
               <td>
-                <label>Minecraft: Bedrock Edition Tag</label>
+                <label>Minecraft Tag</label>
               </td>
               <td>
-                <input onChange={handleMinecraftNameInputChange} value={values.minecraftName} type='text' id='minecraftName' name='minecraftName' placeholder='Minecraft: Bedrock Edition Tag' maxlength='32'/>
+                <input onChange={handleMinecraftNameInputChange} value={values.minecraftName} type='text' id='minecraftName' name='minecraftName' placeholder='e.g. CokefishR7166' maxlength='64'/>
                 <br />
-                {submitted && !values.minecraftName ? <span className='error'>Please enter your Minecraft: Bedrock Edition tag.</span> : null}
+                {submitted && !values.minecraftName ? <span className='error'>Please enter your Minecraft tag.</span> : null}
               </td>
             </tr>
             <tr>
@@ -91,7 +91,7 @@ const HowToApply = () => {
                 <label>Discord Tag</label>
               </td>
               <td>
-                <input onChange={handleDiscordNameInputChange} value={values.discordName} type='text' id='discordName' name='discordName' placeholder='e.g. Cokefish#6054' maxlength='32'/>
+                <input onChange={handleDiscordNameInputChange} value={values.discordName} type='text' id='discordName' name='discordName' placeholder='e.g. Cokefish#6054' maxlength='64'/>
                 <br />
                 {submitted && !values.discordName ? <span className='error'>Please enter your Discord name.</span> : null}
               </td>
@@ -113,7 +113,7 @@ const HowToApply = () => {
             <tr>
               <td></td>
               <td>
-                <input onChange={handleSocialNameInputChange} value={values.socialName} type='text' id='socialName' name='socialName' placeholder='Social Media Tag' maxlength='32'/>
+                <input onChange={handleSocialNameInputChange} value={values.socialName} type='text' id='socialName' name='socialName' placeholder='e.g. MinecartCataphract' maxlength='64'/>
                 <br />
                 {submitted && !values.socialName ? <span className='error'>Please enter your Social Media Platform name.</span> : null}
               </td>
