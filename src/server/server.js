@@ -9,16 +9,19 @@ import reactDomServer from 'react-dom/server';
 // import App from '../App.js';
 import logger from './middleware/logger.js';
 
-import personRoute from './routes/persons.js';
+import person from './routes/person.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const buildPath = path.join(__dirname, '../..', 'build');
-const publicPath = path.join(__dirname, '../..', 'public');
 
 const app = express();
-// const router = express.Router();
 
-// Routes
+app.use(logger);
+app.use(express.json());
+app.use(express.static(buildPath));
+app.use(process.env.REACT_APP_PERSON_ROUTE, person);
+
+app.listen(process.env.PORT, () => console.log(`Server started on port ${process.env.PORT}.`));
 
 // router.get('/', async (req, res, next) => {
 //   res.sendFile(path.join(buildPath, 'index.html'));
@@ -41,15 +44,6 @@ const app = express();
 //   });
 // });
 
-// app.get(process.env.REACT_APP_ABOUTUS_URL, async (req, res, next) => {
-//   res.sendFile(path.join(buildPath, 'aboutus.html'));
-// });
-
-app.use(logger);
-app.use(express.json());
-// app.use(router);
-app.use(express.static(buildPath));
-app.use(process.env.REACT_APP_HOME_URL, personRoute);
 // app.use(
 //   express.static(path.resolve(__dirname, '.', 'dist'), { maxAge: '30d' })
 // );
@@ -59,5 +53,3 @@ app.use(process.env.REACT_APP_HOME_URL, personRoute);
 // app.use((req, res, next) => {
 //   res.sendFile(path.join(__dirname, "../..", "build", "index.html"));
 // });
-
-app.listen(process.env.PORT, () => console.log(`Server started on port ${process.env.PORT}.`));
