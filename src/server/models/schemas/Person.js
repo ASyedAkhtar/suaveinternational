@@ -1,14 +1,13 @@
+import dayjs from 'dayjs';
+import { ObjectId } from 'mongodb';
 import mongoose from 'mongoose';
 
 import operation from '../operation.js';
 
-const Schema = mongoose.Schema;
-const ObjectId = Schema.ObjectId;
-
 mongoose.connect(operation.uri, {});
 
-const Person = new Schema({
-  _id: { type: ObjectId, required: true },
+const Person = new mongoose.Schema({
+  _id: { type: mongoose.ObjectId, required: true },
   minecraftName: { type: String, required: true, max: 64 },
   discordName: { type: String, required: true, max: 64 },
   socialType: { type: String, required: true, max: 64 },
@@ -17,18 +16,32 @@ const Person = new Schema({
   info: { type: String, max: 256 },
   achievements: [{
     status: { type: String },
-    date: { type: Date }
+    date: { type: Date },
+    _id: false
   }]
 });
 
-const leader = mongoose.model('Person', Person, 'persons');
+// The model 'Person' is for the 'persons' collection in the database.
+const person = mongoose.model('Person', Person, 'persons');
 
-const findAllPersons = leader.find({}, (err, docs) => {
+const list = person.find({}, (err, docs) => {
   if(err) throw err;
-  // docs.forEach(element => {
-  //   console.log(`Element: ${element}`);
-  // })
 });
+
+const create = (data) => {
+  // Doctor the JSON to prepare insertion.
+  data.achievements = [{
+    "status": "applied",
+    "date": dayjs().toJSON()
+  }];
+  data._id = ObjectId();
+
+  person.create(data, (err) => {
+    if(err) throw err;
+  });
+};
+
+export default { list, create };
 
 // Person.methods.findByMinecraftName = (title, callback) => {
 //   return this.find({ minecraftName: minecraftName }, callback);
@@ -48,5 +61,3 @@ const findAllPersons = leader.find({}, (err, docs) => {
 //       docs.toJSON();
 //   });
 // });
-
-export default { findAllPersons };
