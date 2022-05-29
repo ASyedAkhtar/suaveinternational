@@ -20,7 +20,7 @@ function App()  {
       <Nav />
       <div class="foreground-background box popout">
         <section id="application" class="main-container-text">
-          <h3>The Premiere Non-Reset Minecraft Bedrock Community!</h3>
+          <h3>The Premiere Non-Reset Minecraft Community!</h3>
           <section class="popout-main box">
             <Routes>
               <Route path={process.env.REACT_APP_HOME_URL} element={<Home />} />
@@ -60,7 +60,7 @@ export default App;
 //           <ul className="persons">
 //             {persons.map((person) => (
 //               <li className="person">
-//                 <p><strong>Minecraft: Bedrock Edition Tag: </strong>{person.minecraftName}</p>
+//                 <p><strong>Minecraft Tag: </strong>{person.minecraftName}</p>
 //                 <p><strong>Discord Tag: </strong>{person.discordName}</p>
 //                 <p><strong>Social Media Platform: </strong>{person.socialType}</p>
 //                 <p><strong>Social Name: </strong>{person.socialName}</p>
