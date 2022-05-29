@@ -1,8 +1,18 @@
-import mongodb from 'mongodb';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+import mongoose from 'mongoose';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@suavedb.m3wta.mongodb.net/SuaveDB?retryWrites=true&w=majority`;
 
-export default { uri };
+const connect = () => {
+  mongoose.connect(uri, {});
+  console.log(`${__dirname}: Connected to database at ${uri}`);
+}
+
+export default { connect };
 
 // const client = new MongoClient(uri, { 
 //                                       useNewUrlParser: true, 
