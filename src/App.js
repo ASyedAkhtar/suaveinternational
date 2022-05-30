@@ -8,7 +8,6 @@ import Header from './components/Header.js';
 import Nav from './components/Nav.js';
 import Home from './components/Home.js';
 import Gallery from './components/Gallery.js';
-import Rules from './components/Rules.js';
 import ApplicationStatus from './components/ApplicationStatus.js';
 import HowToApply from './components/HowToApply.js';
 import AboutUs from './components/AboutUs.js';
@@ -22,12 +21,11 @@ const App = () => {
       <div class="foreground-background box popout">
         <section id="application" class="main-container-text">
           <h3>The Premiere Non-Reset Minecraft Community!</h3>
-          <section class="popout-main box">
+          <section class="popout-main">
             <Routes>
               <Route path={process.env.REACT_APP_ABOUTUS_URL} element={<AboutUs />} />
               <Route path={process.env.REACT_APP_HOWTOAPPLY_URL} element={<HowToApply />} />
               <Route path={process.env.REACT_APP_APPLICATIONSTATUS_URL} element={<ApplicationStatus />} />
-              <Route path={process.env.REACT_APP_RULES_URL} element={<Rules />} />
               <Route path={process.env.REACT_APP_GALLERY_URL} element={<Gallery />} />
               <Route path={process.env.REACT_APP_BASE_URL} element={<Home />} />
             </Routes>
