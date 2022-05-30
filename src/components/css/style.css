@@ -313,12 +313,17 @@ nav[id="social"].floatbar {
         -ms-transform: translate(50%, -100%);
         transform: translate(50%, -100%);
     } */
-    .floatbar {
-        top: 20px;
-        /* -webkit-transform: translate(0%, 0%);
-        -moz-transform: translate(0%, 0%);
-        -ms-transform: translate(0%, 0%);
-        transform: translate(0%, 0%); */
+    nav[id="navigation"].floatbar {
+        -webkit-transform: scale(0.9) translate(-20%, -56%);
+        -moz-transform: scale(0.9) translate(-20%, -56%);
+        -ms-transform: scale(0.9) translate(-20%, -56%);
+        transform: scale(0.9) translate(-20%, -56%);
+    }
+    nav[id="social"].floatbar {
+        -webkit-transform: scale(0.9) translate(20%, -56%);
+        -moz-transform: scale(0.9) translate(20%, -56%);
+        -ms-transform: scale(0.9) translate(20%, -56%);
+        transform: scale(0.9) translate(20%, -56%);
     }
     /* .main-container-text {
         padding: 0px 5px 0px 5px;
