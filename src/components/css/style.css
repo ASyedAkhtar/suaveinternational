@@ -279,28 +279,53 @@ nav[id="social"].floatbar {
         -ms-transform: scale(0.5) translate(80%, -50%);
         transform: scale(0.5) translate(80%, -50%);
     }
+    form input {
+        -webkit-transform: scale(0.6) translate(-100%, 0%);
+        -moz-transform: scale(0.6) translate(-100%, 0%);
+        -ms-transform: scale(0.6) translate(-100%, 0%);
+        transform: scale(0.6) translate(-100%, 0%);
+    }
+    td,
+    input[type="text"] {
+        height: auto;
+        margin: auto;
+        position: static;
+        /* text-align: right; */
+        width: 96%;
+        /* -webkit-transform: scale(0.4) translate(-100%, 0%);
+        -moz-transform: scale(0.4) translate(-100%, 0%);
+        -ms-transform: scale(0.4) translate(-100%, 0%);
+        transform: scale(0.4) translate(-100%, 0%); */
+    }
     /* .main-container-text {
         padding: 0px 5px 0px 5px;
     } */
-    .popout-main {
+    /* .popout-main {
         padding: 0px;
-    }
+    } */
 }
 
 /* Landscape */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+    /* form input {
+        -webkit-transform: translate(50%, -100%);
+        -moz-transform: translate(50%, -100%);
+        -ms-transform: translate(50%, -100%);
+        transform: translate(50%, -100%);
+    } */
     .floatbar {
-        -webkit-transform: translate(-50%, 0%);
-        -moz-transform: translate(-50%, 0%);
-        -ms-transform: translate(-50%, 0%);
-        translate: translate(-50%, 0%);
+        top: 20px;
+        /* -webkit-transform: translate(0%, 0%);
+        -moz-transform: translate(0%, 0%);
+        -ms-transform: translate(0%, 0%);
+        transform: translate(0%, 0%); */
     }
     /* .main-container-text {
         padding: 0px 5px 0px 5px;
     } */
-    .popout-main {
+    /* .popout-main {
         padding: 0px;
-    }
+    } */
 }
 
 /* ----------- iPhone 6+, 7+ and 8+ ----------- */
