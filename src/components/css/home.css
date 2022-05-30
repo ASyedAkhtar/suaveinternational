@@ -1,4 +1,4 @@
-.news-picture{
+.news-picture {
     background-attachment: scroll;
     background-position: center;
     background-repeat: no-repeat;
@@ -9,29 +9,29 @@
     width: 20%;
 }
 
-#newspictureone{
+#newspictureone {
     background-image: url('../img/blueglazedterracotta.png');
 }
 
-#newspicturetwo{
+#newspicturetwo {
     background-image: url('../img/cyanglazedterracotta.png');
 }
 
-#newspicturethree{
+#newspicturethree {
     background-image: url('../img/ice.png');
 }
 
-.news-content{
+.news-content {
     display: inline-block;
     margin: 2%;
     vertical-align: top;
     width: 70%;
 }
 
-.news-content h4{
+.news-content h4 {
     margin: 0px;
 }
 
-.news-content span{
+.news-content span {
     margin: 0px;
 }

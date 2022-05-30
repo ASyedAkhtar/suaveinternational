@@ -1,4 +1,4 @@
-.player-picture{
+.player-picture {
     background-attachment: scroll;
     background-position: center;
     background-repeat: no-repeat;
@@ -9,29 +9,29 @@
     width: 20%;
 }
 
-#pictureplayerone{
+#pictureplayerone {
     background-image: url('../img/cokefish.png');
 }
 
-#pictureplayertwo{
+#pictureplayertwo {
     background-image: url('../img/kayrat.png');
 }
 
-#pictureplayerthree{
+#pictureplayerthree {
     background-image: url('../img/lemonhades.png');
 }
 
-.player-content{
+.player-content {
     display: inline-block;
     margin: 2%;
     vertical-align: top;
     width: 70%;
 }
 
-.player-content h4{
+.player-content h4 {
     margin: 0px;
 }
 
-.player-content span{
+.player-content span {
     margin: 0px;
 }

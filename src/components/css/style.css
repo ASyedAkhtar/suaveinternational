@@ -1,4 +1,5 @@
-html, body{
+html,
+body {
     background-attachment: scroll;
     background-image: url('../img/night.png');
     background-position: center;
@@ -9,17 +10,18 @@ html, body{
     position: static;
 }
 
-a:link, a:visited{
+a:link,
+a:visited {
     color: aquamarine;
 }
 
-hr{
+hr {
     border-color: darkcyan;
     border-width: 2px;
     margin: 0px;
 }
 
-.floatbar{
+.floatbar {
     background-position: center;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bolder;
@@ -32,18 +34,18 @@ hr{
     z-index: 1;
 }
 
-.floatbar ul{
+.floatbar ul {
     list-style: none;
     margin: 0px 0px 0px 0px;
     padding: 0px;
 }
 
-.floatbar li{
+.floatbar li {
     margin: 0px;
     padding: 0px;
 }
 
-.floatbar a{
+.floatbar a {
     display: block;
     font-size: 16px;
     height: 41px;
@@ -53,20 +55,20 @@ hr{
     width: 128px;
 }
 
-.floatbar a:hover{
+.floatbar a:hover {
     background-color: darkcyan;
     box-shadow: 0 0 0 2px #000;
 }
 
-#navigation{
+#navigation {
     left: 10px;
 }
 
-#social{
+#social {
     right: 10px;
 }
 
-.popout{
+.popout {
     background-attachment: scroll;
     background-image: url('../img/chiseledpolishedblackstone.png');
     background-position: center;
@@ -78,7 +80,7 @@ hr{
     text-shadow: -1px -1px 0 darkcyan, 1px -1px 0 darkcyan, -1px 1px 0 darkcyan, 1px 1px 0 darkcyan;
 }
 
-.popout-main{
+.popout-main {
     background-attachment: scroll;
     background-image: url('../img/night.png');
     background-position: center;
@@ -94,12 +96,12 @@ hr{
     width: 100%;
 }
 
-.box{
+.box {
     box-sizing: border-box;
     display: inline-block;
 }
 
-#main-title-background{
+#main-title-background {
     height: 190px;
     margin: 25px 10% 0px 10%;
     position: static;
@@ -107,7 +109,7 @@ hr{
     width: 80%;
 }
 
-#full-logo{
+#full-logo {
     background-attachment: scroll;
     background-image: url('../img/suaveintlogov2-900.png');
     background-position: center;
@@ -118,10 +120,10 @@ hr{
     position: static;
 }
 
-.foreground-background{
+.foreground-background {
     background-attachment: scroll;
     background-image: url('../img/suavespawn.jpg');
-    background-position:center;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: auto;
@@ -131,37 +133,37 @@ hr{
     width: 80%;
 }
 
-.main-container-text{
+.main-container-text {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
     padding: 0px 75px 0px 75px;
     position: static;
 }
 
-.main-container-text h3{
+.main-container-text h3 {
     font-variant: small-caps;
     font-weight: bolder;
     text-align: center;
     text-decoration: underline;
 }
 
-.main-container-text h4{
+.main-container-text h4 {
     font-variant: small-caps;
     font-weight: bolder;
     text-align: center;
 }
 
-.main-container-text h6{
+.main-container-text h6 {
     font-style: italic;
     font-weight: lighter;
     text-align: right;
 }
 
-.main-container-text p{
+.main-container-text p {
     text-align: left;
 }
 
-#main-footer{
+#main-footer {
     font-style: italic;
     font-size: 12px;
     margin: 5px 10% 0px 10%;
@@ -170,11 +172,11 @@ hr{
     width: 80%;
 }
 
-.clearfix{
-    clear:both;
+.clearfix {
+    clear: both;
 }
 
-.error{
+.error {
     color: orange;
     font-style: italic;
     font-size: 12px;
@@ -183,34 +185,92 @@ hr{
 }
 
 /* Any height less than */
-@media(max-height:700px){
-    #main-footer{
+@media(max-height:700px) {
+    #main-footer {
         margin: 5px 45% 0px 45%;
         width: 10%;
     }
 }
-@media(max-height:650px){
-    .floatbar{
+
+@media(max-height:650px) {
+    /* .floatbar{
         display: none;
-    }
- }
+    } */
+}
 
 /* Any width less than */
-@media(max-width:630px){
-    .floatbar{
+@media(max-width:375px) {
+
+    /* .floatbar{
         display: none;
-    }
-    .main-container-text{
+    } */
+    .main-container-text {
         padding: 0px 5px 0px 5px;
     }
-    .popout-main{
+
+    .popout-main {
         padding: 0px;
     }
 }
 
 /* Any width greater than */
-@media(min-width:890px){
-    .main-container-text{
+@media(min-width:890px) {
+    .main-container-text {
         padding: 0px 100px 0px 100px;
     }
 }
+
+/* ----------- iPhone 4 and 4S ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {}
+
+/* Portrait */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {}
+
+/* Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {}
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {}
+
+/* Portrait */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {}
+
+/* Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {}
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {}
+
+/* Portrait */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {}
+
+/* Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {}
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {}
+
+/* Portrait */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {}
+
+/* Landscape */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {}
+
+/* ----------- iPhone X ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {}
+
+/* Portrait */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {}
+
+/* Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {}
