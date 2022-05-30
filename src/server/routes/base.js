@@ -9,7 +9,7 @@ const buildPath = path.join(__dirname, '../../..', 'build');
 const router = express.Router();
 
 router.get(process.env.REACT_APP_BASE_MISSING_API, async (req, res, next) => {
-    res.redirect(process.env.REACT_APP_BASE_ROUTE);
+  res.redirect(process.env.REACT_APP_BASE_ROUTE);
 });
 
 export default router;
