@@ -110,7 +110,7 @@ const HowToApply = () => {
               </td>
             </tr>
             <tr>
-              <td></td>
+              <td>Social Media Tag</td>
               <td>
                 <input onChange={handleSocialNameInputChange} value={values.socialName} type='text' id='socialName' name='socialName' placeholder='e.g. MinecartCataphract' maxlength='64'/>
                 <br />
