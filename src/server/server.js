@@ -31,7 +31,10 @@ app.use(process.env.REACT_APP_BASE_ROUTE, base);
 // Initialize models.
 operation.connect();
 
-app.listen(process.env.PORT, () => console.log(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] Server started on port ${process.env.PORT}.`));
+const hostName = process.env.REACT_APP_HOST_NAME;
+const port = hostName.substring(hostName.indexOf(':') + 1);
+
+app.listen(port, () => console.log(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] Server started on port ${port}.`));
 
 // router.get('/', async (req, res, next) => {
 //   res.sendFile(path.join(buildPath, 'index.html'));
