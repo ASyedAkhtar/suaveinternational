@@ -19,6 +19,12 @@ import operation from './models/operation.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const buildPath = path.join(__dirname, '../..', 'build');
 
+const hostNameHTTP = process.env.REACT_APP_HOST_NAME_HTTP;
+const portHTTP = hostNameHTTP.substring(hostNameHTTP.indexOf(':') + 1);
+const hostNameHTTPS = process.env.REACT_APP_HOST_NAME_HTTPS;
+const hostName = hostNameHTTPS.substring(0, hostNameHTTPS.indexOf(':'));
+const portHTTPS = hostNameHTTPS.substring(hostNameHTTPS.indexOf(':') + 1);
+
 const app = express();
 
 // Initialize middleware.
@@ -27,10 +33,14 @@ app.use(logger);
 app.use(express.json());
 app.use(express.static(buildPath));
 app.use((req, res, next) => {
-  if(req.protocol === 'http') {
-    res.redirect(process.env.RESPONSE_MOVEDPERMANENTLY, `${process.env.REACT_APP_HOST_PROTOCOL}${req.headers.host}${req.url}`);
+  if(req.hostname.includes(hostName)) {
+    if(!req.secure) {
+      res.redirect(process.env.RESPONSE_MOVEDPERMANENTLY, `${process.env.REACT_APP_HOST_PROTOCOL}${req.hostname}${req.url}`);
+    }
+    next();
+  } else {
+    res.status(process.env.RESPONSE_FORBIDDEN).end(`Access with ${req.hostname} is restricted! Use ${hostName} instead.`);
   }
-  next();
 });
 
 // Initialize routes.
@@ -39,11 +49,6 @@ app.use(process.env.REACT_APP_BASE_ROUTE, base);
 
 // Initialize models.
 operation.connect();
-
-const hostNameHTTP = process.env.REACT_APP_HOST_NAME_HTTP;
-const portHTTP = hostNameHTTP.substring(hostNameHTTP.indexOf(':') + 1);
-const hostNameHTTPS = process.env.REACT_APP_HOST_NAME_HTTPS;
-const portHTTPS = hostNameHTTPS.substring(hostNameHTTPS.indexOf(':') + 1);
 
 http.createServer(app).listen(portHTTP, () => console.log(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] Server started on port ${portHTTP}.`));
 
