@@ -39,7 +39,7 @@ app.use((req, res, next) => {
     }
     next();
   } else {
-    res.status(process.env.RESPONSE_FORBIDDEN).end(`Access with ${req.hostname} is restricted! Use ${hostName} instead.`);
+    res.status(process.env.RESPONSE_FORBIDDEN).end(`<h1>Access with ${req.hostname} is restricted!</h1>`);
   }
 });
 
