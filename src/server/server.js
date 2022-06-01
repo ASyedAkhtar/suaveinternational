@@ -37,10 +37,10 @@ app.use((req, res, next) => {
     if(!req.secure) {
       res.redirect(301, `${process.env.REACT_APP_HOST_PROTOCOL}${req.hostname}${req.url}`);
     }
-    next();
   } else {
     res.status(403).end(`<h1>Access with ${req.hostname} is restricted!</h1>`);
   }
+  next();
 });
 
 // Initialize routes.
