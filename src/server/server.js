@@ -35,11 +35,11 @@ app.use(express.static(buildPath));
 app.use((req, res, next) => {
   if(req.hostname.includes(hostName)) {
     if(!req.secure) {
-      res.redirect(process.env.RESPONSE_MOVEDPERMANENTLY, `${process.env.REACT_APP_HOST_PROTOCOL}${req.hostname}${req.url}`);
+      res.redirect(301, `${process.env.REACT_APP_HOST_PROTOCOL}${req.hostname}${req.url}`);
     }
     next();
   } else {
-    res.status(process.env.RESPONSE_FORBIDDEN).end(`<h1>Access with ${req.hostname} is restricted!</h1>`);
+    res.status(403).end(`<h1>Access with ${req.hostname} is restricted!</h1>`);
   }
 });
 
