@@ -6,7 +6,7 @@ const Home = () => {
         <h4>Website Grand Opening!</h4>
         <h6>February 28th, 2021</h6>
         <span>Hello world! Today marks the launch of the Suave International
-        Website! After weeks of construction we are pleased to finally
+        website! After weeks of construction we are pleased to finally
         open up to the public.
         </span>
       </div>
