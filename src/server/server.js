@@ -28,18 +28,18 @@ const portHTTPS = hostNameHTTPS.substring(hostNameHTTPS.indexOf(':') + 1);
 const app = express();
 
 // Initialize middleware.
-app.set('trust proxy', 'loopback');
+app.set('trust proxy', true);
 app.use(logger);
 app.use(express.json());
 app.use(express.static(buildPath));
 app.use((req, res, next) => {
-  if(req.hostname.includes(hostName)) {
-    if(!req.secure) {
-      return res.redirect(301, `${process.env.REACT_APP_HOST_PROTOCOL}${req.hostname}${req.url}`);
-    }
+  console.log(JSON.stringify(req.headers));
+  if(req.hostname.includes(hostName) && req.secure) {
     next();
+  } else if(req.hostname.includes(hostName) && !req.secure) {
+    return res.redirect(301, `${process.env.REACT_APP_HOST_PROTOCOL}${req.hostname}${req.url}`);
   } else {
-    return res.status(403).end(`<h1>Access with ${req.hostname} is restricted!</h1>`);
+    return res.status(403).end(`Access with ${req.hostname} is restricted!`);
   }
 });
 
@@ -53,9 +53,9 @@ operation.connect();
 http.createServer(app).listen(portHTTP, () => console.log(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] Server started on port ${portHTTP}.`));
 
 https.createServer({
-  key: fs.readFileSync(path.join(__dirname, './ssl/suaveinternational.com.key')),
-  ca: fs.readFileSync(path.join(__dirname, './ssl/origin_ca_rsa_root.pem')),
-  cert: fs.readFileSync(path.join(__dirname, './ssl/suaveinternational.com.pem'))
+  key: fs.readFileSync(path.join(__dirname, 'ssl', process.env.SSL_KEY)),
+  ca: fs.readFileSync(path.join(__dirname, 'ssl', process.env.SSL_CA)),
+  cert: fs.readFileSync(path.join(__dirname, 'ssl', process.env.SSL_CERT))
 }, app).listen(portHTTPS, () => console.log(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] Server started on port ${portHTTPS}.`));
 
 // router.get('/', async (req, res, next) => {
