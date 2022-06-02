@@ -31,7 +31,7 @@ const app = express();
 app.set('trust proxy', process.env.EXPRESS_TRUSTPROXY === 'true');
 app.use(logger);
 app.use(express.json());
-app.use(express.static(buildPath));
+app.use(express.static(buildPath, { dotfiles: 'allow' }));
 app.use((req, res, next) => {
   console.log(JSON.stringify(req.headers));
   if(req.hostname.includes(hostName) && req.secure) {
