@@ -11,12 +11,12 @@ const hostName = hostNameHTTPS.substring(0, hostNameHTTPS.indexOf(':'));
 
 const router = express.Router();
 
-// router.get(process.env.REACT_APP_BASE_DOT_API, async (req, res, next) => {
-//   res.redirect(301, `${process.env.REACT_APP_HOST_PROTOCOL}${hostName}`);
-// });
+router.get(process.env.REACT_APP_BASE_DOT_API, async (req, res, next) => {
+  res.redirect(301, `${process.env.REACT_APP_HOST_PROTOCOL}${hostName}`);
+});
 
-// router.get(process.env.REACT_APP_BASE_MISSING_API, async (req, res, next) => {
-//   res.redirect(301, `${process.env.REACT_APP_HOST_PROTOCOL}${hostName}`);
-// });
+router.get(process.env.REACT_APP_BASE_MISSING_API, async (req, res, next) => {
+  res.redirect(301, `${process.env.REACT_APP_HOST_PROTOCOL}${hostName}`);
+});
 
 export default router;

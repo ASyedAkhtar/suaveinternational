@@ -32,17 +32,16 @@ app.set('trust proxy', process.env.EXPRESS_TRUSTPROXY === 'true');
 app.use(logger);
 app.use(express.json());
 app.use(express.static(buildPath));
-app.use(express.static(path.join(__dirname, '../..', 'acme'), { dotfiles: 'allow' }));
+// app.use(express.static(path.join(__dirname, '../..', 'acme'), { dotfiles: 'allow' }));
 app.use((req, res, next) => {
   console.log(JSON.stringify(req.headers));
   if(req.hostname.includes(hostName) && req.secure) {
-
+    next();
   } else if(req.hostname.includes(hostName) && !req.secure) {
-    // res.redirect(301, `${process.env.REACT_APP_HOST_PROTOCOL}${hostName}${req.url}`);
+    res.redirect(301, `${process.env.REACT_APP_HOST_PROTOCOL}${hostName}${req.url}`);
   } else {
-    // res.status(403).end(`Access with ${req.hostname} is restricted!`);
+    res.status(403).end(`Access with ${req.hostname} is restricted!`);
   }
-  next();
 });
 
 // Initialize routes.
@@ -54,11 +53,11 @@ operation.connect();
 
 http.createServer(app).listen(portHTTP, () => console.log(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] Server started on port ${portHTTP}.`));
 
-// https.createServer({
-//   key: fs.readFileSync(path.join(__dirname, 'ssl', process.env.SSL_KEY)),
-//   ca: fs.readFileSync(path.join(__dirname, 'ssl', process.env.SSL_CA)),
-//   cert: fs.readFileSync(path.join(__dirname, 'ssl', process.env.SSL_CERT))
-// }, app).listen(portHTTPS, () => console.log(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] Server started on port ${portHTTPS}.`));
+https.createServer({
+  key: fs.readFileSync(`/etc/letsencrypt/live/${hostName}/privkey.pem`),
+  ca: fs.readFileSync(`/etc/letsencrypt/live/${hostName}/chain.pem`),
+  cert: fs.readFileSync(`/etc/letsencrypt/live/${hostName}/cert.pem`)
+}, app).listen(portHTTPS, () => console.log(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] Server started on port ${portHTTPS}.`));
 
 // router.get('/', async (req, res, next) => {
 //   res.sendFile(path.join(buildPath, 'index.html'));
