@@ -29,20 +29,19 @@ const app = express();
 
 // Initialize middleware.
 app.set('trust proxy', process.env.EXPRESS_TRUSTPROXY === 'true');
+
 app.use(logger);
 app.use(express.json());
-app.use(express.static(buildPath));
-// app.use(express.static(path.join(__dirname, '../..', 'acme'), { dotfiles: 'allow' }));
 app.use((req, res, next) => {
-  console.log(JSON.stringify(req.headers));
   if(req.hostname.includes(hostName) && req.secure) {
     next();
   } else if(req.hostname.includes(hostName) && !req.secure) {
-    res.redirect(301, `${process.env.REACT_APP_HOST_PROTOCOL}${hostName}${req.url}`);
+    res.redirect(301, `${process.env.REACT_APP_HOST_PROTOCOL}${hostNameHTTPS}${req.url}`);
   } else {
     res.status(403).end(`Access with ${req.hostname} is restricted!`);
   }
 });
+app.use(express.static(buildPath));
 
 // Initialize routes.
 app.use(process.env.REACT_APP_PERSON_ROUTE, person);
@@ -51,13 +50,13 @@ app.use(process.env.REACT_APP_BASE_ROUTE, base);
 // Initialize models.
 operation.connect();
 
-http.createServer(app).listen(portHTTP, () => console.log(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] Server started on port ${portHTTP}.`));
+http.createServer(app).listen(portHTTP, () => console.log(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] HTTP server started on port ${portHTTP}.`));
 
 https.createServer({
-  key: fs.readFileSync(process.env.SSL_KEY),
-  ca: fs.readFileSync(process.env.SSL_CA),
-  cert: fs.readFileSync(process.env.SSL_CERT)
-}, app).listen(portHTTPS, () => console.log(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] Server started on port ${portHTTPS}.`));
+  // key: fs.readFileSync(process.env.SSL_KEY),
+  // ca: fs.readFileSync(process.env.SSL_CA),
+  // cert: fs.readFileSync(process.env.SSL_CERT)
+}, app).listen(portHTTPS, () => console.log(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] HTTPS server started on port ${portHTTPS}.`));
 
 // router.get('/', async (req, res, next) => {
 //   res.sendFile(path.join(buildPath, 'index.html'));
