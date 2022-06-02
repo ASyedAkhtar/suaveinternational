@@ -53,11 +53,11 @@ operation.connect();
 
 http.createServer(app).listen(portHTTP, () => console.log(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] Server started on port ${portHTTP}.`));
 
-https.createServer({
-  key: fs.readFileSync(path.join(__dirname, 'ssl', process.env.SSL_KEY)),
-  ca: fs.readFileSync(path.join(__dirname, 'ssl', process.env.SSL_CA)),
-  cert: fs.readFileSync(path.join(__dirname, 'ssl', process.env.SSL_CERT))
-}, app).listen(portHTTPS, () => console.log(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] Server started on port ${portHTTPS}.`));
+// https.createServer({
+//   key: fs.readFileSync(path.join(__dirname, 'ssl', process.env.SSL_KEY)),
+//   ca: fs.readFileSync(path.join(__dirname, 'ssl', process.env.SSL_CA)),
+//   cert: fs.readFileSync(path.join(__dirname, 'ssl', process.env.SSL_CERT))
+// }, app).listen(portHTTPS, () => console.log(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] Server started on port ${portHTTPS}.`));
 
 // router.get('/', async (req, res, next) => {
 //   res.sendFile(path.join(buildPath, 'index.html'));
