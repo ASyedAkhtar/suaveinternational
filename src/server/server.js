@@ -35,12 +35,13 @@ app.use(express.static(buildPath, { dotfiles: 'allow' }));
 app.use((req, res, next) => {
   console.log(JSON.stringify(req.headers));
   if(req.hostname.includes(hostName) && req.secure) {
-    next();
+
   } else if(req.hostname.includes(hostName) && !req.secure) {
-    res.redirect(301, `${process.env.REACT_APP_HOST_PROTOCOL}${hostName}${req.url}`);
+    // res.redirect(301, `${process.env.REACT_APP_HOST_PROTOCOL}${hostName}${req.url}`);
   } else {
-    res.status(403).end(`Access with ${req.hostname} is restricted!`);
+    // res.status(403).end(`Access with ${req.hostname} is restricted!`);
   }
+  next();
 });
 
 // Initialize routes.
