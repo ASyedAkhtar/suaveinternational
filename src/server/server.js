@@ -28,7 +28,7 @@ const portHTTPS = hostNameHTTPS.substring(hostNameHTTPS.indexOf(':') + 1);
 const app = express();
 
 // Initialize middleware.
-app.set('trust proxy', true);
+app.set('trust proxy', process.env.EXPRESS_TRUSTPROXY === 'true');
 app.use(logger);
 app.use(express.json());
 app.use(express.static(buildPath));
@@ -37,9 +37,9 @@ app.use((req, res, next) => {
   if(req.hostname.includes(hostName) && req.secure) {
     next();
   } else if(req.hostname.includes(hostName) && !req.secure) {
-    return res.redirect(301, `${process.env.REACT_APP_HOST_PROTOCOL}${req.hostname}${req.url}`);
+    res.redirect(301, `${process.env.REACT_APP_HOST_PROTOCOL}${hostName}${req.url}`);
   } else {
-    return res.status(403).end(`Access with ${req.hostname} is restricted!`);
+    res.status(403).end(`Access with ${req.hostname} is restricted!`);
   }
 });
 
