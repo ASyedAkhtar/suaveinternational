@@ -36,7 +36,7 @@ app.use((req, res, next) => {
   if(req.hostname.includes(hostName) && req.secure) {
     next();
   } else if(req.hostname.includes(hostName) && !req.secure) {
-    res.redirect(301, `${process.env.REACT_APP_HOST_PROTOCOL}${hostNameHTTPS}${req.url}`);
+    res.redirect(301, `${process.env.REACT_APP_HOST_PROTOCOL}${hostNameHTTPS}`);
   } else {
     res.status(403).end(`Access with ${req.hostname} is restricted!`);
   }
