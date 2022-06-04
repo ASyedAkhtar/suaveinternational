@@ -10,25 +10,23 @@ import dayjs from 'dayjs';
 // import reactDomServer from 'react-dom/server';
 
 import logger from './middleware/logger.js';
+
 import person from './routes/person.js';
+import post from './routes/post.js';
 import base from './routes/base.js';
+
 import operation from './models/operation.js';
 
 // import App from '../App.js';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const buildPath = path.join(__dirname, '../..', 'build');
-
-const hostNameHTTP = process.env.REACT_APP_HOST_NAME_HTTP;
-const portHTTP = hostNameHTTP.substring(hostNameHTTP.indexOf(':') + 1);
-const hostNameHTTPS = process.env.REACT_APP_HOST_NAME_HTTPS;
-const hostName = hostNameHTTPS.substring(0, hostNameHTTPS.indexOf(':'));
-const portHTTPS = hostNameHTTPS.substring(hostNameHTTPS.indexOf(':') + 1);
 
 const app = express();
 
 // Initialize middleware.
 app.set('trust proxy', process.env.EXPRESS_TRUSTPROXY === 'true');
+
+const hostHTTPS = process.env.REACT_APP_HOST_NAME_HTTPS;
+const hostName = hostHTTPS.substring(0, hostHTTPS.indexOf(':'));
+const portHTTPS = hostHTTPS.substring(hostHTTPS.indexOf(':') + 1);
 
 app.use(logger);
 app.use(express.json());
@@ -41,16 +39,26 @@ app.use((req, res, next) => {
     res.status(403).end(`Access with ${req.hostname} is restricted!`);
   }
 });
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const buildPath = path.join(__dirname, '../..', 'build');
+
 app.use(express.static(buildPath));
 
 // Initialize routes.
 app.use(process.env.REACT_APP_PERSON_ROUTE, person);
+app.use(process.env.REACT_APP_POST_ROUTE, post);
 app.use(process.env.REACT_APP_BASE_ROUTE, base);
 
 // Initialize models.
 operation.connect();
 
+const hostHTTP = process.env.REACT_APP_HOST_NAME_HTTP;
+const portHTTP = hostHTTP.substring(hostHTTP.indexOf(':') + 1);
+
 http.createServer(app).listen(portHTTP, () => console.log(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] HTTP server started on port ${portHTTP}.`));
+
+
 
 https.createServer({
   key: fs.readFileSync(process.env.SSL_KEY),
