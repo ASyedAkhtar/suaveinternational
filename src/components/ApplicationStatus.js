@@ -6,22 +6,22 @@ import './css/applicationstatus.css';
 
 const ApplicationStatus = () => {
 
-  const [person, setPerson] = useState([]);
-
-  const getPersons = async () => {
-    const response = await personList.get('');
-    const data = await response.data;
-    setPerson(data);
-  }
+  const [persons, setPersons] = useState([]);
 
   useEffect(() => {
     getPersons();
   }, []);
 
+  const getPersons = async () => {
+    const response = await personList.get('');
+    const data = await response.data;
+    setPersons(data);
+  }
+
   return(
     <div>
       <ul>
-        {person.map((person) => {
+        {persons.map((person) => {
           return(
             <div key={person._id}>
               <br />
@@ -33,11 +33,11 @@ const ApplicationStatus = () => {
               <li><strong>Any Other Relevant Information: </strong>{person.info}</li>
               <br />
               <ul>
-                {person.achievements.map((personAchievements, i) => {
+                {person.achievements.map((personAchievement, i) => {
                   return(
                     <div>
-                      <li><strong>Achievement {i+1}: </strong>{personAchievements.status}</li>
-                      <li><strong>Date {i+1}: </strong>{personAchievements.date}</li>
+                      <li><strong>Achievement {i+1}: </strong>{personAchievement.status}</li>
+                      <li><strong>Date {i+1}: </strong>{personAchievement.date}</li>
                     </div>
                   );
                 })}
