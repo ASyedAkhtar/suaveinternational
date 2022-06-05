@@ -9,9 +9,11 @@ const Post = new mongoose.Schema({
   date: { type: Date, required: true },
   paragraphs: [{
     text: { type: String, max: 4096 },
+    _id: false,
     images: [{
       source: { type: String, max: 64 },
-      caption: { type: String, max: 64 }
+      caption: { type: String, max: 64 },
+      _id: false
     }]
   }]
 });
