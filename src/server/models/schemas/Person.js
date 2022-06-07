@@ -21,7 +21,7 @@ const Person = new mongoose.Schema({
 const person = mongoose.model('Person', Person, 'persons');
 
 const list = person.find({}, (err, res) => {
-    if(err) throw err;
+  if(err) throw err;
 });
 
 const create = (data) => {
