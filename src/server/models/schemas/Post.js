@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 
 const Post = new mongoose.Schema({
   _id: { type: mongoose.ObjectId, required: true },
+  type: { type: String, required: true },
   title: { type: String, required: true, max: 64 },
   author: { type: mongoose.ObjectId, required: true },
   date: { type: Date, required: true },
@@ -21,7 +22,11 @@ const Post = new mongoose.Schema({
 const post = mongoose.model('Post', Post, 'posts');
 
 const list = post.find({}, (err, res) => {
-    if(err) throw err;
+  if(err) throw err;
 });
 
-export default { list };
+const homeList = post.find({ type: "Home" }, (err, res) => {
+  if(err) throw err;
+});
+
+export default { list, homeList };

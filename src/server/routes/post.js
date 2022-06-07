@@ -9,4 +9,9 @@ router.get(process.env.REACT_APP_LIST_API, async (req, res, next) => {
   res.send(posts);
 });
 
+router.get(process.env.REACT_APP_HOME_ROUTE + process.env.REACT_APP_LIST_API, async (req, res, next) => { 
+  const posts = await post.homeList.clone();
+  res.send(posts);
+});
+
 export default router;
