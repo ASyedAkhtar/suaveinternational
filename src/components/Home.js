@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import postList from '../api/post/list.js';
+import postList from '../api/post/home/list.js';
 
 import Post from './Post.js';
 
