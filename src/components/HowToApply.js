@@ -102,7 +102,7 @@ const HowToApply = () => {
               <td spacing='adjoining-row'>
                 <input onChange={handleSocialTypeInputChange} value='reddit' type='radio' id='reddit' name='socialMediaPlatform'/>
                 <label for='reddit'>Reddit</label>
-                {"\n"}
+                {'\n'}
                 <input onChange={handleSocialTypeInputChange} value='twitter' type='radio' id='twitter' name='socialMediaPlatform'/>
                 <label for='twitter'>Twitter</label>
                 <br />
