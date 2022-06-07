@@ -1,3 +1,5 @@
+import blueglazedterracotta from './img/blueglazedterracotta.png';
+
 const Post = ({post}) => {
   return(
     <div key={post._id} className='box'>
@@ -10,7 +12,7 @@ const Post = ({post}) => {
               <span>{postParagraph.text}</span>
               {postParagraph.images.map((postParagraphImage, j) => {
                 return(
-                  <div className={`${post._id}_${i+1}_${j+1}`}></div>
+                  <img className={`${post._id}_${i+1}_${j+1}`} src={blueglazedterracotta} alt={postParagraphImage.caption}></img>
                 );
               })}
             </div>
@@ -22,4 +24,3 @@ const Post = ({post}) => {
 }
   
 export default Post;
-  
