@@ -20,9 +20,9 @@ const getPosts = async () => {
 
   return(
     <div>
-      {posts.map((post) => {
+      {posts.reverse().map((post) => {
         return(
-          <Post post={post} />
+          <Post key={post._id} post={post} />
         );
       })}
     </div>
