@@ -1,14 +1,23 @@
-.news-picture {
+.post-text {
+    display: inline-block;
+    margin: 0px;
+    vertical-align: top;
+    width: 70%;
+}
+
+.post-picture {
     background-attachment: scroll;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    border: 2px darkcyan solid;
+    border-radius: 1em;
     display: inline-block;
-    height: 190px;
-    margin: 2%;
-    width: 20%;
+    height: 128px;
+    margin: 0px;
+    width: 128px;
 }
-
+/* 
 #newspictureone {
     background-image: url('../img/blueglazedterracotta.png');
 }
@@ -34,4 +43,4 @@
 
 .news-content span {
     margin: 0px;
-}
+} */
