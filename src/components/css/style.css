@@ -134,10 +134,10 @@ nav[id="social"].floatbar {
     width: 96%;
 }
 
-.box {
+/* .box {
     box-sizing: border-box;
     display: inline-block;
-}
+} */
 
 #main-title-background {
     height: 192px;
@@ -167,7 +167,7 @@ nav[id="social"].floatbar {
     height: auto;
     margin: 4px 10% 4px 10%;
     position: static;
-    text-align: center;
+    /* text-align: center; */
     width: 80%;
 }
 
@@ -224,6 +224,10 @@ nav[id="social"].floatbar {
     text-align: center;
     top: 0px;
     vertical-align: middle;
+}
+
+.post {
+    margin: 5%;
 }
 
 .clearfix {
