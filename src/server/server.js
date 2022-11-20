@@ -6,8 +6,6 @@ import express from 'express';
 import http from 'http';
 import https from 'https';
 import dayjs from 'dayjs';
-// import React from 'react';
-// import reactDomServer from 'react-dom/server';
 
 import logger from './middleware/logger.js';
 
@@ -19,8 +17,6 @@ import operation from './models/operation.js';
 
 import Response from '../constants/Response.js';
 import Route from '../constants/Route.js';
-
-// import App from '../App.js';
 
 const app = express();
 
@@ -39,7 +35,7 @@ app.use((req, res, next) => {
   } else if(req.hostname.includes(hostName)) {
     res.redirect(Response.MOVEDPERMANENTLY, `${process.env.REACT_APP_HOST_PROTOCOL}${hostName}:${portHTTPS}${req.url}`);
   } else {
-    res.status(Response.FORBIDDEN).end(`Access with ${req.hostname} is restricted!`);
+    res.status(Response.FORBIDDEN).end();
   }
 });
 
@@ -68,24 +64,3 @@ https.createServer({
   ca: fs.readFileSync(process.env.SSL_CA),
   cert: fs.readFileSync(process.env.SSL_CERT)
 }, app).listen(portHTTPS, () => console.log(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] HTTPS server started on port ${portHTTPS}.`));
-
-// router.get('/', async (req, res, next) => {
-//   res.sendFile(path.join(buildPath, 'index.html'));
-// });
-
-// app.get(REACT_APP_HOME_URL, (req, res) => {
-//   fs.readFile(path.resolve(buildPath, 'index.html'), 'utf8', (err, data) => {
-//     if (err) {
-//       console.log(err);
-//       return res.status(500).send('Internal Server Error!');
-//     }
-
-//     return res.send(
-//       data.replace(
-//         '<div id="root"></div>',
-//         // `<div id="root">${reactDomServer.renderToString(<App />)}</div>`
-//         `<div id="root">${reactDomServer.renderToString(react.createElement(App, null))}</div>`
-//       )
-//     );
-//   });
-// });

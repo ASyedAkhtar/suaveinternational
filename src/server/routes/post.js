@@ -12,7 +12,8 @@ router.get(Route.LIST, async (req, res, next) => {
     if(!err) {
       res.status(Response.OK).json(posts);
     } else {
-      res.status(Response.INTERNALSERVERERROR).json(Response.INTERNALSERVERERROR);
+      next(err);
+      res.status(Response.INTERNALSERVERERROR);
     }
   }).clone();
 });
@@ -22,7 +23,8 @@ router.get(Route.HOME + Route.LIST, async (req, res, next) => {
     if(!err) {
       res.status(Response.OK).json(posts);
     } else {
-      res.status(Response.INTERNALSERVERERROR).json(Response.INTERNALSERVERERROR);
+      next(err);
+      res.status(Response.INTERNALSERVERERROR);
     }
   }).clone();
 });

@@ -15,7 +15,8 @@ router.get(Route.LIST, async (req, res, next) => {
     if(!err) {
       res.status(Response.OK).json(persons);
     } else {
-      res.status(Response.INTERNALSERVERERROR).json(Response.INTERNALSERVERERROR);
+      next(err);
+      res.status(Response.INTERNALSERVERERROR);
     }
   }).clone();
 });
@@ -31,10 +32,10 @@ router.post(Route.CREATE, async (req, res, next) => {
   
   await person.create(body, (err) => {
     if(!err) {
-      res.status(Response.OK).json(Response.OK);
+      res.status(Response.OK);
     } else {
       next(err);
-      res.status(Response.BADREQUEST).json(Response.BADREQUEST);
+      res.status(Response.BADREQUEST);
     }
   });
 });
