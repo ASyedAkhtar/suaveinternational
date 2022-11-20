@@ -17,6 +17,9 @@ import base from './routes/base.js';
 
 import operation from './models/operation.js';
 
+import Response from '../constants/Response.js';
+import Route from '../constants/Route.js';
+
 // import App from '../App.js';
 
 const app = express();
@@ -34,9 +37,9 @@ app.use((req, res, next) => {
   if(req.hostname === hostName && req.secure) {
     next();
   } else if(req.hostname.includes(hostName)) {
-    res.redirect(301, `${process.env.REACT_APP_HOST_PROTOCOL}${hostName}:${portHTTPS}${req.url}`);
+    res.redirect(Response.MOVEDPERMANENTLY, `${process.env.REACT_APP_HOST_PROTOCOL}${hostName}:${portHTTPS}${req.url}`);
   } else {
-    res.status(403).end(`Access with ${req.hostname} is restricted!`);
+    res.status(Response.FORBIDDEN).end(`Access with ${req.hostname} is restricted!`);
   }
 });
 
@@ -48,9 +51,9 @@ app.use(express.static(buildPath));
 app.use(express.static(publicPath/*, {dotfiles: 'allow'}*/));
 
 // Initialize routes.
-app.use(process.env.REACT_APP_PERSON_ROUTE, person);
-app.use(process.env.REACT_APP_POST_ROUTE, post);
-app.use(process.env.REACT_APP_BASE_ROUTE, base);
+app.use(Route.PERSON, person);
+app.use(Route.POST, post);
+app.use(Route.BASE, base);
 
 // Initialize models.
 operation.connect();
@@ -85,14 +88,4 @@ https.createServer({
 //       )
 //     );
 //   });
-// });
-
-// app.use(
-//   express.static(path.resolve(__dirname, '.', 'dist'), { maxAge: '30d' })
-// );
-
-// app.use(express.static(path.join(__dirname, '../..', 'public')));
-
-// app.use((req, res, next) => {
-//   res.sendFile(path.join(__dirname, "../..", "build", "index.html"));
 // });
