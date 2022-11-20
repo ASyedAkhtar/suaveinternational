@@ -1,7 +1,8 @@
 import axios from 'axios';
 
+import Route from '../../constants/Route.js';
+
 export default axios.create({
-  baseURL: process.env.REACT_APP_HOST_PROTOCOL + process.env.REACT_APP_HOST_NAME_HTTPS + process.env.REACT_APP_PERSON_ROUTE + process.env.REACT_APP_CREATE_API,
-  // headers: {"Content-Type": "application/json"},
+  baseURL: process.env.REACT_APP_HOST_PROTOCOL + process.env.REACT_APP_HOST_NAME_HTTPS + Route.PERSON + Route.CREATE,
   timeout: 5000
 });

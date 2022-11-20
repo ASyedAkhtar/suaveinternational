@@ -1,17 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Resource from '../constants/Resource.js';
+
 const Nav = () => {
   return(
     <div>
       <nav id='navigation' className='floatbar popout'>
         <div>
           <ul className='navlinks'>
-            <li><Link to={process.env.REACT_APP_BASE_URL}></Link></li>
-            <li><Link to={process.env.REACT_APP_GALLERY_URL}></Link></li>
-            <li><Link to={process.env.REACT_APP_APPLICATIONSTATUS_URL}></Link></li>
-            <li><Link to={process.env.REACT_APP_HOWTOAPPLY_URL}></Link></li>
-            <li><Link to={process.env.REACT_APP_ABOUTUS_URL}></Link></li>
+            <li><Link to={Resource.BASE}></Link></li>
+            <li><Link to={Resource.GALLERY}></Link></li>
+            <li><Link to={Resource.APPLICATIONSTATUS}></Link></li>
+            <li><Link to={Resource.HOWTOAPPLY}></Link></li>
+            <li><Link to={Resource.ABOUTUS}></Link></li>
           </ul>
         </div>
       </nav>

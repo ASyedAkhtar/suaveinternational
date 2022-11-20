@@ -13,6 +13,8 @@ import HowToApply from './components/HowToApply.js';
 import AboutUs from './components/AboutUs.js';
 import Footer from './components/Footer.js';
 
+import Resource from './constants/Resource.js';
+
 const App = () => {
   return(
     <body>
@@ -23,11 +25,11 @@ const App = () => {
           <h3>The Premiere Non-Reset Minecraft Community!</h3>
           <section class="popout-main">
             <Routes>
-              <Route path={process.env.REACT_APP_ABOUTUS_URL} element={<AboutUs />} />
-              <Route path={process.env.REACT_APP_HOWTOAPPLY_URL} element={<HowToApply />} />
-              <Route path={process.env.REACT_APP_APPLICATIONSTATUS_URL} element={<ApplicationStatus />} />
-              <Route path={process.env.REACT_APP_GALLERY_URL} element={<Gallery />} />
-              <Route path={process.env.REACT_APP_BASE_URL} element={<Home />} />
+              <Route path={Resource.ABOUTUS} element={<AboutUs />} />
+              <Route path={Resource.HOWTOAPPLY} element={<HowToApply />} />
+              <Route path={Resource.APPLICATIONSTATUS} element={<ApplicationStatus />} />
+              <Route path={Resource.GALLERY} element={<Gallery />} />
+              <Route path={Resource.BASE} element={<Home />} />
             </Routes>
           </section>
           <section>
