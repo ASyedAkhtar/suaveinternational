@@ -32,7 +32,7 @@ router.post(Route.CREATE, async (req, res, next) => {
   
   await person.create(body, (err) => {
     if(!err) {
-      res.status(Response.OK);
+      res.status(Response.OK).json();
     } else {
       next(err);
       res.status(Response.BADREQUEST);
