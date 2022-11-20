@@ -31,10 +31,10 @@ const portHTTPS = hostHTTPS.substring(hostHTTPS.indexOf(':') + 1);
 app.use(logger);
 app.use(express.json());
 app.use((req, res, next) => {
-  if(req.hostname.includes(hostName) && req.secure) {
+  if(req.hostname === hostName && req.secure) {
     next();
-  } else if(req.hostname.includes(hostName) && !req.secure) {
-    res.redirect(301, `${process.env.REACT_APP_HOST_PROTOCOL}${req.hostname}:${portHTTPS}${req.url}`);
+  } else if(req.hostname.includes(hostName)) {
+    res.redirect(301, `${process.env.REACT_APP_HOST_PROTOCOL}${hostName}:${portHTTPS}${req.url}`);
   } else {
     res.status(403).end(`Access with ${req.hostname} is restricted!`);
   }
@@ -42,8 +42,10 @@ app.use((req, res, next) => {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const buildPath = path.join(__dirname, '../..', 'build');
+const publicPath = path.join(__dirname, '../..', 'public');
 
 app.use(express.static(buildPath));
+app.use(express.static(publicPath/*, {dotfiles: 'allow'}*/));
 
 // Initialize routes.
 app.use(process.env.REACT_APP_PERSON_ROUTE, person);
@@ -57,8 +59,6 @@ const hostHTTP = process.env.REACT_APP_HOST_NAME_HTTP;
 const portHTTP = hostHTTP.substring(hostHTTP.indexOf(':') + 1);
 
 http.createServer(app).listen(portHTTP, () => console.log(`[${dayjs().format('YYYY-MM-DD HH:mm:ss')}] HTTP server started on port ${portHTTP}.`));
-
-
 
 https.createServer({
   key: fs.readFileSync(process.env.SSL_KEY),
