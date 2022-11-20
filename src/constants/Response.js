@@ -1,0 +1,10 @@
+const Response = {
+  OK: 200,
+  MOVEDPERMANENTLY: 301,
+  BADREQUEST: 400,
+  FORBIDDEN: 403,
+  NOTFOUND: 404,
+  INTERNALSERVERERROR: 500
+}
+
+export default Response;
