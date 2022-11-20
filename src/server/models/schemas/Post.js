@@ -19,14 +19,7 @@ const Post = new mongoose.Schema({
   }]
 });
 
+// The model 'Post' is for the 'posts' collection in the database.
 const post = mongoose.model('Post', Post, 'posts');
 
-const list = post.find({}, (err, res) => {
-  if(err) throw err;
-});
-
-const homeList = post.find({ type: "Home" }, (err, res) => {
-  if(err) throw err;
-});
-
-export default { list, homeList };
+export { post };
