@@ -1,11 +1,13 @@
 import blueglazedterracotta from './img/blueglazedterracotta.png';
 import basalttop from './img/basalttop.png';
+import cyanglazedterracotta from './img/cyanglazedterracotta.png';
 
 const Post = ({post}) => {
 
   const images = {
     blueglazedterracotta,
-    basalttop
+    basalttop,
+    cyanglazedterracotta
   };
 
   return(
