@@ -11,10 +11,10 @@ import logger from './middleware/logger.js';
 
 import person from './routes/person.js';
 import post from './routes/post.js';
-import base from './routes/base.js';
 
 import operation from './models/operation.js';
 
+import Resource from '../constants/Resource.js';
 import Response from '../constants/Response.js';
 import Route from '../constants/Route.js';
 
@@ -40,16 +40,27 @@ app.use((req, res, next) => {
 });
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const buildPath = path.join(__dirname, '../..', 'build');
-const publicPath = path.join(__dirname, '../..', 'public');
-
-app.use(express.static(buildPath));
-app.use(express.static(publicPath/*, {dotfiles: 'allow'}*/));
+app.use(express.static(path.join(__dirname, '../..', 'build')));
+app.use(express.static(path.join(__dirname, '../..', 'public')/*, {dotfiles: 'allow'}*/));
 
 // Initialize routes.
 app.use(Route.PERSON, person);
 app.use(Route.POST, post);
-app.use(Route.BASE, base);
+
+
+// Catch-all route that will send client index for client routes. Otherwise send Not Found.
+app.use((req, res, next) => {
+  let foundClientResource = false;
+  Object.values(Resource).forEach((key) => {
+    if(req.originalUrl.toLowerCase() === key && key !== Resource.BASE) {
+      foundClientResource = true;
+      res.sendFile(path.join(__dirname, '../..', 'build', 'index.html'));
+    }
+  });
+  if(!foundClientResource) {
+    res.status(Response.NOTFOUND).end();
+  }
+});
 
 // Initialize models.
 operation.connect();
