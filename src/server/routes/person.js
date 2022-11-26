@@ -15,8 +15,7 @@ router.get(Route.LIST, async (req, res, next) => {
     if(!err) {
       res.status(Response.OK).json(persons);
     } else {
-      next(err);
-      res.status(Response.INTERNALSERVERERROR);
+      res.status(Response.INTERNALSERVERERROR).end(err);
     }
   }).clone();
 });
@@ -34,8 +33,7 @@ router.post(Route.CREATE, async (req, res, next) => {
     if(!err) {
       res.status(Response.OK).json();
     } else {
-      next(err);
-      res.status(Response.BADREQUEST);
+      res.status(Response.BADREQUEST).end(err);
     }
   });
 });
